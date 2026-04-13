@@ -3,138 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หมีใหญ่ โมบาย | ลงทะเบียนรับบริการ</title>
+
+<title>ผ่อนมือถือ อุดรธานี ดาวน์ 0 บาท | หมีใหญ่ โมบาย</title>
+<meta name="description" content="ผ่อนมือถือ อุดรธานี อนุมัติง่าย ใช้บัตรประชาชนใบเดียว ดาวน์ 0 บาท ไม่ต้องค้ำ รู้ผลไวใน 5 นาที">
 
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Prompt', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Prompt',sans-serif;}
 
 body{
-  background: linear-gradient(180deg,#ffffff,#f5f5f7);
-  color:#1d1d1f;
+background:linear-gradient(180deg,#fff,#f5f5f7);
+color:#1d1d1f;
 }
 
 .container{
-  max-width:420px;
-  margin:auto;
-  padding:20px;
+max-width:420px;
+margin:auto;
+padding:20px;
 }
 
-.header{
-  text-align:center;
-  margin-bottom:30px;
+.hero{
+text-align:center;
+margin-bottom:25px;
 }
 
-.header h1{
-  font-size:26px;
-  font-weight:600;
+.hero h1{
+font-size:26px;
+font-weight:600;
 }
 
-.header p{
-  font-size:14px;
-  color:#666;
+.hero p{
+color:#666;
+margin-top:8px;
+}
+
+.badge{
+color:red;
+margin-top:10px;
+font-size:14px;
 }
 
 .card{
-  background:#fff;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+background:#fff;
+border-radius:20px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.field{
-  margin-bottom:18px;
-  position:relative;
-}
+.field{margin-bottom:16px;}
 
 label{
-  font-size:13px;
-  color:#888;
-  display:block;
-  margin-bottom:6px;
+font-size:13px;
+color:#888;
+margin-bottom:5px;
+display:block;
 }
 
-input, select{
-  width:100%;
-  padding:14px;
-  border-radius:14px;
-  border:1px solid #ddd;
-  font-size:15px;
-  outline:none;
-  transition:0.2s;
-}
-
-input:focus, select:focus{
-  border-color:#000;
+input,select{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #ddd;
+font-size:15px;
 }
 
 .btn{
-  width:100%;
-  padding:16px;
-  border:none;
-  border-radius:16px;
-  background:#000;
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.2s;
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:#000;
+color:#fff;
+font-size:16px;
+cursor:pointer;
 }
 
-.btn:hover{
-  opacity:0.9;
+.loading,.success{
+display:none;
+text-align:center;
+margin-top:15px;
 }
 
-.loading{
-  display:none;
-  text-align:center;
-  margin-top:15px;
-  color:#666;
+.success{color:green;}
+
+.floating{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+z-index:999;
 }
 
-.success{
-  display:none;
-  text-align:center;
-  margin-top:20px;
-  color:green;
-  font-weight:600;
+.floating a{
+padding:14px;
+border-radius:50px;
+color:#fff;
+text-decoration:none;
+font-size:14px;
+text-align:center;
 }
 
-.sticky{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#fff;
-  padding:10px;
-  box-shadow:0 -5px 20px rgba(0,0,0,0.1);
-  display:flex;
-  gap:10px;
-}
-
-.sticky a{
-  flex:1;
-  text-align:center;
-  padding:12px;
-  border-radius:12px;
-  text-decoration:none;
-  font-size:14px;
-}
-
-.line{
-  background:#06C755;
-  color:#fff;
-}
-
-.call{
-  background:#000;
-  color:#fff;
-}
+.line-btn{background:#06C755;}
+.call-btn{background:#000;}
 </style>
 </head>
 
@@ -142,9 +115,12 @@ input:focus, select:focus{
 
 <div class="container">
 
-<div class="header">
-<h1>หมีใหญ่ โมบาย</h1>
-<p>ผ่อนมือถือ อนุมัติง่าย ใช้บัตรประชาชนใบเดียว</p>
+<div class="hero">
+<h1>🔥 ผ่อนมือถือ อุดรธานี</h1>
+<p>ดาวน์ 0 บาท | รู้ผลไวใน 5 นาที</p>
+<p>✔ ใช้บัตรประชาชนใบเดียว</p>
+<p>✔ ไม่ต้องค้ำ ✔ ติดเครดิตสมัครได้</p>
+<p class="badge">❗ จำกัด 10 สิทธิ์/วัน</p>
 </div>
 
 <div class="card">
@@ -175,7 +151,7 @@ input:focus, select:focus{
 </div>
 
 <div class="field">
-<label>รายได้ต่อเดือน</label>
+<label>รายได้</label>
 <select name="income" required>
 <option value="">เลือก</option>
 <option>5000-15000</option>
@@ -185,7 +161,7 @@ input:focus, select:focus{
 </div>
 
 <div class="field">
-<label>ยี่ห้อมือถือ</label>
+<label>ยี่ห้อ</label>
 <select name="brand" required>
 <option value="">เลือก</option>
 <option>Apple</option>
@@ -200,54 +176,71 @@ input:focus, select:focus{
 
 <button class="btn">ลงทะเบียน</button>
 
-<div class="loading" id="loading">กำลังส่งข้อมูล...</div>
-<div class="success" id="success">✅ ส่งข้อมูลสำเร็จ</div>
+<div class="loading" id="loading">⏳ กำลังส่งข้อมูล...</div>
+<div class="success" id="success">✅ ส่งสำเร็จ กำลังพาไป LINE...</div>
 
 </form>
 </div>
 
 </div>
 
-<div class="sticky">
-<a href="https://line.me/ti/p/@024kwxvw" class="line">แอด LINE</a>
-<a href="tel:0648386496" class="call">โทร</a>
+<div class="floating">
+<a href="https://line.me/ti/p/@024kwxvw" class="line-btn">LINE</a>
+<a href="tel:0648386496" class="call-btn">โทร</a>
 </div>
 
 <script>
 // generate time
-let timeSelect = document.getElementById("time");
+let time = document.getElementById("time");
 for(let i=10;i<=20;i++){
-  let val = i.toString().padStart(2,'0')+":00";
-  let opt = document.createElement("option");
-  opt.value = val;
-  opt.innerHTML = val;
-  timeSelect.appendChild(opt);
+let t = i.toString().padStart(2,'0')+":00";
+let opt = document.createElement("option");
+opt.value = t;
+opt.innerHTML = t;
+time.appendChild(opt);
 }
 
 // submit
-document.getElementById("form").addEventListener("submit",function(e){
-  e.preventDefault();
+document.getElementById("form").addEventListener("submit", async function(e){
+e.preventDefault();
 
-  let formData = new FormData(this);
-  let obj = {};
-  formData.forEach((v,k)=>obj[k]=v);
+const btn = document.querySelector(".btn");
+const loading = document.getElementById("loading");
+const success = document.getElementById("success");
 
-  document.getElementById("loading").style.display="block";
+let formData = new FormData(this);
+let obj = {};
+formData.forEach((v,k)=>obj[k]=v);
 
-  fetch("https://script.google.com/macros/s/AKfycbzqVbFwgC5VVKx2QocwbC8zkiN4PgcGE-ERJ9ENt4hz_fES0bizM-9u6E5f2LWCZFLjQg/exec",{
-    method:"POST",
-    body: JSON.stringify(obj)
-  })
-  .then(res=>res.text())
-  .then(()=>{
-    document.getElementById("loading").style.display="none";
-    document.getElementById("success").style.display="block";
-    navigator.vibrate(200);
+btn.disabled = true;
+loading.style.display="block";
 
-    setTimeout(()=>{
-      window.location.href="https://line.me/ti/p/@024kwxvw";
-    },1500)
-  });
+try{
+const res = await fetch("https://script.google.com/macros/s/AKfycbycHnDqKDFE1FpEs_PIKIBQsm-Q80RFfhu41H39JaFNxZj1wWPgNyTqe_jVh8Tc8fYtug/exec",{
+method:"POST",
+body:JSON.stringify(obj),
+headers:{ "Content-Type":"application/json" }
+});
+
+const text = await res.text();
+
+if(text.includes("success")){
+loading.style.display="none";
+success.style.display="block";
+
+setTimeout(()=>{
+window.location.href="https://line.me/ti/p/@024kwxvw";
+},1500);
+
+}else{
+throw "error";
+}
+
+}catch(err){
+loading.innerHTML="❌ ส่งไม่สำเร็จ ลองใหม่";
+btn.disabled=false;
+}
+
 });
 </script>
 
