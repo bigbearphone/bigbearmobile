@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หมีใหญ่ โมบาย | ลงทะเบียนรับบริการ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Prompt', sans-serif;
+}
+
+body{
+  background: linear-gradient(180deg,#ffffff,#f5f5f7);
+  color:#1d1d1f;
+}
+
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+}
+
+.header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.header h1{
+  font-size:26px;
+  font-weight:600;
+}
+
+.header p{
+  font-size:14px;
+  color:#666;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.field{
+  margin-bottom:18px;
+  position:relative;
+}
+
+label{
+  font-size:13px;
+  color:#888;
+  display:block;
+  margin-bottom:6px;
+}
+
+input, select{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #ddd;
+  font-size:15px;
+  outline:none;
+  transition:0.2s;
+}
+
+input:focus, select:focus{
+  border-color:#000;
+}
+
+.btn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:16px;
+  background:#000;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:hover{
+  opacity:0.9;
+}
+
+.loading{
+  display:none;
+  text-align:center;
+  margin-top:15px;
+  color:#666;
+}
+
+.success{
+  display:none;
+  text-align:center;
+  margin-top:20px;
+  color:green;
+  font-weight:600;
+}
+
+.sticky{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  padding:10px;
+  box-shadow:0 -5px 20px rgba(0,0,0,0.1);
+  display:flex;
+  gap:10px;
+}
+
+.sticky a{
+  flex:1;
+  text-align:center;
+  padding:12px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.line{
+  background:#06C755;
+  color:#fff;
+}
+
+.call{
+  background:#000;
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>หมีใหญ่ โมบาย</h1>
+<p>ผ่อนมือถือ อนุมัติง่าย ใช้บัตรประชาชนใบเดียว</p>
+</div>
+
+<div class="card">
+<form id="form">
+
+<div class="field">
+<label>บริการ</label>
+<select name="service" required>
+<option value="">เลือกบริการ</option>
+<option>เข้ารับบริการหน้าร้าน</option>
+<option>รับบริการนอกสถานที่</option>
+</select>
+</div>
+
+<div class="field">
+<label>เวลา</label>
+<select name="time" id="time" required></select>
+</div>
+
+<div class="field">
+<label>ชื่อเล่น</label>
+<input type="text" name="name" required>
+</div>
+
+<div class="field">
+<label>เบอร์ติดต่อ</label>
+<input type="tel" name="phone" pattern="0[0-9]{9}" maxlength="10" required>
+</div>
+
+<div class="field">
+<label>รายได้ต่อเดือน</label>
+<select name="income" required>
+<option value="">เลือก</option>
+<option>5000-15000</option>
+<option>15000-25000</option>
+<option>25000+++</option>
+</select>
+</div>
+
+<div class="field">
+<label>ยี่ห้อมือถือ</label>
+<select name="brand" required>
+<option value="">เลือก</option>
+<option>Apple</option>
+<option>Samsung</option>
+<option>OPPO</option>
+<option>VIVO</option>
+<option>Xiaomi</option>
+<option>iQoo</option>
+<option>Infinix</option>
+</select>
+</div>
+
+<button class="btn">ลงทะเบียน</button>
+
+<div class="loading" id="loading">กำลังส่งข้อมูล...</div>
+<div class="success" id="success">✅ ส่งข้อมูลสำเร็จ</div>
+
+</form>
+</div>
+
+</div>
+
+<div class="sticky">
+<a href="https://line.me/ti/p/@024kwxvw" class="line">แอด LINE</a>
+<a href="tel:0648386496" class="call">โทร</a>
+</div>
+
+<script>
+// generate time
+let timeSelect = document.getElementById("time");
+for(let i=10;i<=20;i++){
+  let val = i.toString().padStart(2,'0')+":00";
+  let opt = document.createElement("option");
+  opt.value = val;
+  opt.innerHTML = val;
+  timeSelect.appendChild(opt);
+}
+
+// submit
+document.getElementById("form").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  let formData = new FormData(this);
+  let obj = {};
+  formData.forEach((v,k)=>obj[k]=v);
+
+  document.getElementById("loading").style.display="block";
+
+  fetch("https://script.google.com/macros/s/AKfycbzqVbFwgC5VVKx2QocwbC8zkiN4PgcGE-ERJ9ENt4hz_fES0bizM-9u6E5f2LWCZFLjQg/exec",{
+    method:"POST",
+    body: JSON.stringify(obj)
+  })
+  .then(res=>res.text())
+  .then(()=>{
+    document.getElementById("loading").style.display="none";
+    document.getElementById("success").style.display="block";
+    navigator.vibrate(200);
+
+    setTimeout(()=>{
+      window.location.href="https://line.me/ti/p/@024kwxvw";
+    },1500)
+  });
+});
+</script>
+
+</body>
+</html>
