@@ -3,167 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ผ่อนมือถือ อุดรธานี ดาวน์ 0 บาท</title>
 
-<title>ผ่อนมือถือ อุดรธานี ดาวน์ 0 บาท | หมีใหญ่ โมบาย</title>
-<meta name="description" content="ผ่อนมือถือ อุดรธานี อนุมัติง่าย ใช้บัตรประชาชนใบเดียว ดาวน์ 0 บาท ไม่ต้องค้ำ รู้ผลไวใน 5 นาที">
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="description" content="ผ่อนมือถือ ใช้บัตรประชาชนใบเดียว อนุมัติไว 30 นาที รู้ผล">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Prompt',sans-serif;}
-
 body{
-background:linear-gradient(180deg,#fff,#f5f5f7);
-color:#1d1d1f;
+  margin:0;
+  font-family:-apple-system, BlinkMacSystemFont;
+  background:#f5f5f7;
 }
 
-.container{
-max-width:420px;
-margin:auto;
-padding:20px;
-}
-
+/* HERO */
 .hero{
-text-align:center;
-margin-bottom:25px;
+  padding:60px 20px;
+  text-align:center;
 }
-
 .hero h1{
-font-size:26px;
-font-weight:600;
+  font-size:28px;
+  font-weight:700;
 }
-
 .hero p{
-color:#666;
-margin-top:8px;
+  color:#666;
 }
 
-.badge{
-color:red;
-margin-top:10px;
-font-size:14px;
-}
-
+/* CARD */
 .card{
-background:#fff;
-border-radius:20px;
-padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
-.field{margin-bottom:16px;}
-
-label{
-font-size:13px;
-color:#888;
-margin-bottom:5px;
-display:block;
-}
-
+/* FORM */
 input,select{
-width:100%;
-padding:14px;
-border-radius:14px;
-border:1px solid #ddd;
-font-size:15px;
+  width:100%;
+  padding:16px;
+  margin-top:10px;
+  border-radius:12px;
+  border:1px solid #ddd;
 }
 
-.btn{
-width:100%;
-padding:16px;
-border:none;
-border-radius:16px;
-background:#000;
-color:#fff;
-font-size:16px;
-cursor:pointer;
+button{
+  width:100%;
+  padding:16px;
+  margin-top:20px;
+  border:none;
+  border-radius:12px;
+  background:#0071e3;
+  color:#fff;
+  font-size:16px;
 }
 
-.loading,.success{
-display:none;
-text-align:center;
-margin-top:15px;
+/* FLOAT BTN */
+.float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#06c755;
+  color:#fff;
+  padding:16px;
+  border-radius:50px;
+  font-size:14px;
 }
 
-.success{color:green;}
-
-.floating{
-position:fixed;
-bottom:20px;
-right:20px;
-display:flex;
-flex-direction:column;
-gap:10px;
-z-index:999;
+/* LOADING */
+#loading{
+  display:none;
+  text-align:center;
+  margin-top:10px;
 }
-
-.floating a{
-padding:14px;
-border-radius:50px;
-color:#fff;
-text-decoration:none;
-font-size:14px;
-text-align:center;
-}
-
-.line-btn{background:#06C755;}
-.call-btn{background:#000;}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
+<!-- HERO -->
 <div class="hero">
-<h1>🔥 ผ่อนมือถือ อุดรธานี</h1>
-<p>ดาวน์ 0 บาท | รู้ผลไวใน 5 นาที</p>
-<p>✔ ใช้บัตรประชาชนใบเดียว</p>
-<p>✔ ไม่ต้องค้ำ ✔ ติดเครดิตสมัครได้</p>
-<p class="badge">❗ จำกัด 10 สิทธิ์/วัน</p>
+  <h1>ผ่อนมือถือ อนุมัติไว 30 นาที</h1>
+  <p>ใช้บัตรประชาชนใบเดียว | ดาวน์ 0 บาท</p>
 </div>
 
+<!-- FORM -->
 <div class="card">
 <form id="form">
 
-<div class="field">
-<label>บริการ</label>
 <select name="service" required>
 <option value="">เลือกบริการ</option>
 <option>เข้ารับบริการหน้าร้าน</option>
 <option>รับบริการนอกสถานที่</option>
 </select>
-</div>
 
-<div class="field">
-<label>เวลา</label>
-<select name="time" id="time" required></select>
-</div>
+<select name="time" id="time"></select>
 
-<div class="field">
-<label>ชื่อเล่น</label>
-<input type="text" name="name" required>
-</div>
+<input type="text" name="name" placeholder="ชื่อเล่น" required>
 
-<div class="field">
-<label>เบอร์ติดต่อ</label>
-<input type="tel" name="phone" pattern="0[0-9]{9}" maxlength="10" required>
-</div>
+<input type="tel" name="phone" placeholder="เบอร์โทร 10 หลัก" pattern="0[0-9]{9}" required>
 
-<div class="field">
-<label>รายได้</label>
-<select name="income" required>
-<option value="">เลือก</option>
+<select name="income">
 <option>5000-15000</option>
 <option>15000-25000</option>
 <option>25000+++</option>
 </select>
-</div>
 
-<div class="field">
-<label>ยี่ห้อ</label>
-<select name="brand" required>
-<option value="">เลือก</option>
+<select name="brand">
 <option>Apple</option>
 <option>Samsung</option>
 <option>OPPO</option>
@@ -172,75 +116,63 @@ text-align:center;
 <option>iQoo</option>
 <option>Infinix</option>
 </select>
-</div>
 
-<button class="btn">ลงทะเบียน</button>
-
-<div class="loading" id="loading">⏳ กำลังส่งข้อมูล...</div>
-<div class="success" id="success">✅ ส่งสำเร็จ กำลังพาไป LINE...</div>
+<button type="submit">ลงทะเบียนตอนนี้</button>
 
 </form>
+
+<div id="loading">⏳ กำลังส่งข้อมูล...</div>
 </div>
 
-</div>
-
-<div class="floating">
-<a href="https://line.me/ti/p/@024kwxvw" class="line-btn">LINE</a>
-<a href="tel:0648386496" class="call-btn">โทร</a>
-</div>
+<!-- FLOAT LINE -->
+<a class="float" href="https://line.me/R/ti/p/@024kwxvw">
+  แอด LINE
+</a>
 
 <script>
-// generate time
-let time = document.getElementById("time");
+const scriptURL = "https://script.google.com/macros/s/AKfycbzywXNvEVlw6xnoHGZ5MpmR3Oztdu6uOPkIdFJHpT-LfdpENgcngLx-CDDWEAETnym0uQ/exec";
+
+// สร้างเวลา 10:00 - 20:00
+const time = document.getElementById("time");
 for(let i=10;i<=20;i++){
-let t = i.toString().padStart(2,'0')+":00";
-let opt = document.createElement("option");
-opt.value = t;
-opt.innerHTML = t;
-time.appendChild(opt);
+  let t = (i<10?"0":"")+i+":00";
+  let opt = document.createElement("option");
+  opt.value = t;
+  opt.text = "เวลา " + t;
+  time.appendChild(opt);
 }
 
 // submit
 document.getElementById("form").addEventListener("submit", async function(e){
-e.preventDefault();
+  e.preventDefault();
 
-const btn = document.querySelector(".btn");
-const loading = document.getElementById("loading");
-const success = document.getElementById("success");
+  const data = Object.fromEntries(new FormData(this).entries());
 
-let formData = new FormData(this);
-let obj = {};
-formData.forEach((v,k)=>obj[k]=v);
+  document.getElementById("loading").style.display="block";
 
-btn.disabled = true;
-loading.style.display="block";
+  try{
+    const res = await fetch(scriptURL,{
+      method:"POST",
+      body:JSON.stringify(data)
+    });
 
-try{
-const res = await fetch("https://script.google.com/macros/s/AKfycbycHnDqKDFE1FpEs_PIKIBQsm-Q80RFfhu41H39JaFNxZj1wWPgNyTqe_jVh8Tc8fYtug/exec",{
-method:"POST",
-body:JSON.stringify(obj),
-headers:{ "Content-Type":"application/json" }
-});
+    const result = await res.json();
 
-const text = await res.text();
+    if(result.status==="success"){
+      alert("✅ ส่งสำเร็จ แอด LINE ได้เลย");
 
-if(text.includes("success")){
-loading.style.display="none";
-success.style.display="block";
+      // 🔥 เปิด LINE ก่อน
+      window.open("https://line.me/R/ti/p/@024kwxvw");
 
-setTimeout(()=>{
-window.location.href="https://line.me/ti/p/@024kwxvw";
-},1500);
+    }else{
+      alert("❌ เกิดข้อผิดพลาด");
+    }
 
-}else{
-throw "error";
-}
+  }catch(err){
+    alert("❌ ส่งไม่สำเร็จ");
+  }
 
-}catch(err){
-loading.innerHTML="❌ ส่งไม่สำเร็จ ลองใหม่";
-btn.disabled=false;
-}
-
+  document.getElementById("loading").style.display="none";
 });
 </script>
 
