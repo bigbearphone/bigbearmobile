@@ -132,6 +132,16 @@ button{
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbzyXByoxevw0YTt0I_T7CAUBUqJym-91CclO9Naya6oGbiXKAvt-Mk4M5xF2ZkOWpStaQ/exec";
 
+// 🔥 สร้างเวลา
+const time = document.getElementById("time");
+for(let i=10;i<=20;i++){
+  let t = (i<10?"0":"")+i+":00";
+  let opt = document.createElement("option");
+  opt.value = t;
+  opt.text = "เวลา " + t;
+  time.appendChild(opt);
+}
+
 document.getElementById("form").addEventListener("submit", async function(e){
   e.preventDefault();
 
@@ -146,12 +156,13 @@ document.getElementById("form").addEventListener("submit", async function(e){
     });
 
     const result = await res.text();
+    console.log("RESULT:", result);
 
-    if(result === "OK"){
+    if(result.includes("OK")){
       alert("✅ ส่งสำเร็จ");
       window.open("https://line.me/R/ti/p/@024kwxvw");
     }else{
-      alert("❌ มีปัญหา");
+      alert("❌ มีปัญหา: " + result);
     }
 
   }catch(err){
