@@ -171,6 +171,12 @@ document.getElementById("form").addEventListener("submit", async function(e){
   }
 
   document.getElementById("loading").style.display="none";
+
+fetch("https://script.google.com/macros/s/AKfycbxMnJm4n-EgC32BR1yUdG0tBN5LFBLPK6LztPFY1F-taGBA3MazjqCCnqEE7wcR0d8i/exec", {
+  method: "POST",
+  body: JSON.stringify(data)
+})
+  
 });
 </script>
 
