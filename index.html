@@ -130,19 +130,8 @@ button{
 </a>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbx7JXMXvi6bgfAmCNVoVL3DEHNBf3sCn4iXDVRQioGcV7hNmVoEv3crEqFZwcVJ9T4YAQ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzyXByoxevw0YTt0I_T7CAUBUqJym-91CclO9Naya6oGbiXKAvt-Mk4M5xF2ZkOWpStaQ/exec";
 
-// สร้างเวลา
-const time = document.getElementById("time");
-for(let i=10;i<=20;i++){
-  let t = (i<10?"0":"")+i+":00";
-  let opt = document.createElement("option");
-  opt.value = t;
-  opt.text = "เวลา " + t;
-  time.appendChild(opt);
-}
-
-// submit
 document.getElementById("form").addEventListener("submit", async function(e){
   e.preventDefault();
 
@@ -156,16 +145,13 @@ document.getElementById("form").addEventListener("submit", async function(e){
       body: JSON.stringify(data)
     });
 
-    const result = await res.json();
+    const result = await res.text();
 
-    if(result.status==="success"){
+    if(result === "OK"){
       alert("✅ ส่งสำเร็จ");
-
-      // 🔥 เปิด LINE
       window.open("https://line.me/R/ti/p/@024kwxvw");
-
     }else{
-      alert("❌ เกิดข้อผิดพลาด");
+      alert("❌ มีปัญหา");
     }
 
   }catch(err){
