@@ -130,7 +130,9 @@ button{
 </a>
 
 <script>
-// สร้างเวลา 10:00 - 20:00
+const scriptURL = "https://script.google.com/macros/s/AKfycbzyXByoxevw0YTt0I_T7CAUBUqJym-91CclO9Naya6oGbiXKAvt-Mk4M5xF2ZkOWpStaQ/exec";
+
+// สร้างเวลา
 const time = document.getElementById("time");
 for(let i=10;i<=20;i++){
   let t = (i<10?"0":"")+i+":00";
@@ -151,15 +153,15 @@ document.getElementById("form").addEventListener("submit", async function(e){
   try{
     const res = await fetch(scriptURL,{
       method:"POST",
-      body:JSON.stringify(data)
+      body: JSON.stringify(data)
     });
 
     const result = await res.json();
 
     if(result.status==="success"){
-      alert("✅ ส่งสำเร็จ แอด LINE ได้เลย");
+      alert("✅ ส่งสำเร็จ");
 
-      // 🔥 เปิด LINE ก่อน
+      // 🔥 เปิด LINE
       window.open("https://line.me/R/ti/p/@024kwxvw");
 
     }else{
@@ -167,16 +169,11 @@ document.getElementById("form").addEventListener("submit", async function(e){
     }
 
   }catch(err){
+    console.error(err);
     alert("❌ ส่งไม่สำเร็จ");
   }
 
   document.getElementById("loading").style.display="none";
-
-fetch("https://script.google.com/macros/s/AKfycbxMnJm4n-EgC32BR1yUdG0tBN5LFBLPK6LztPFY1F-taGBA3MazjqCCnqEE7wcR0d8i/exec", {
-  method: "POST",
-  body: JSON.stringify(data)
-})
-  
 });
 </script>
 
