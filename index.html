@@ -10,14 +10,23 @@
     
     <meta property="og:title" content="หมีใหญ่ โมบาย อุดรธานี | จองคิวรับบริการ">
     <meta property="og:description" content="ศูนย์รวมมือถือและบริการครบวงจรในอุดรธานี จองคิวล่วงหน้าเพื่อรับสิทธิ์พิเศษ">
-    <meta property="og:image" content="https://yourusername.github.io/bigbear-mobile/og-image.jpg"> <meta property="og:url" content="https://yourusername.github.io/bigbear-mobile/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/yourusername/yourrepo/main/og-image.jpg"> 
+    <meta property="og:url" content="https://www.facebook.com/bigbear.mobile">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐻</text></svg>">
 
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        :root { --primary: #0a84ff; --bg: #f5f5f7; --card-bg: #fff; --text: #1d1d1f; --text-sub: #86868b; }
+        :root { 
+            --primary: #0a84ff; 
+            --bg: #f5f5f7; 
+            --card-bg: #fff; 
+            --text: #1d1d1f; 
+            --text-sub: #86868b; 
+            --line-color: #06C755;
+            --fb-color: #1877F2;
+        }
         @media (prefers-color-scheme: dark) {
             :root { --bg: #000; --card-bg: #1c1c1e; --text: #fff; --text-sub: #a1a1a6; }
         }
@@ -25,7 +34,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Kanit', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
         
-        /* Utility */
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         /* Header */
@@ -34,101 +42,39 @@
         .logo { font-size: 20px; font-weight: 600; text-decoration: none; color: #fff; display: flex; align-items: center; gap: 8px; }
         
         /* Hero Section */
-        #hero { padding: 120px 0 60px; text-align: center; }
-        #hero h1 { font-size: 40px; font-weight: 600; line-height: 1.1; margin-bottom: 15px; background: linear-gradient(135deg, #fff 0%, #0a84ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        #hero p { font-size: 18px; color: var(--text-sub); margin-bottom: 30px; font-weight: 300; }
+        #hero { padding: 140px 0 60px; text-align: center; }
+        #hero h1 { font-size: 48px; font-weight: 600; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #0a84ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #hero p { font-size: 20px; color: var(--text-sub); margin-bottom: 35px; font-weight: 300; }
         
-        /* Services Section (eCommerce style) */
-        #services { padding: 40px 0; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .service-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; align-items: flex-start; }
-        .service-card:hover { transform: translateY(-5px); border-color: rgba(10,132,255,0.2); }
-        .icon { font-size: 30px; margin-bottom: 15px; color: var(--primary); }
-        .service-card h3 { font-size: 20px; margin-bottom: 10px; }
-        .service-card p { color: var(--text-sub); font-size: 15px; font-weight: 300; margin-bottom: 20px; flex-grow: 1; }
+        /* Services Section */
+        #services { padding: 60px 0; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .service-card { background: var(--card-bg); padding: 40px; border-radius: 28px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .icon { font-size: 40px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 22px; margin-bottom: 15px; }
+        .service-card p { color: var(--text-sub); font-size: 16px; font-weight: 300; margin-bottom: 25px; line-height: 1.6; }
         
-        /* CTA Button */
-        .cta-btn { display: inline-block; padding: 14px 28px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 15px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(10,132,255,0.3); }
-        .cta-btn:hover { background: #0071e3; transform: scale(1.03); }
-        .full-btn { width: 100%; text-align: center; margin-top: auto; }
+        /* Buttons */
+        .cta-btn { display: inline-block; padding: 16px 32px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 16px; transition: all 0.3s ease; text-align: center; box-shadow: 0 4px 15px rgba(10,132,255,0.3); }
+        .cta-btn:hover { background: #0071e3; transform: scale(1.05); }
         
-        /* Footer */
-        footer { background: #1c1c1e; color: #8e8e93; padding: 40px 0; text-align: center; font-size: 14px; margin-top: 60px; }
-        footer a { color: #8e8e93; text-decoration: none; margin: 0 10px; }
+        /* Floating Buttons */
+        .floating-container { position: fixed; bottom: 30px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .floating-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .floating-btn:hover { transform: scale(1.1) translateY(-5px); }
+        .btn-facebook { background: var(--fb-color); }
+        .btn-line { background: var(--line-color); }
+        .icon-svg { width: 30px; height: 30px; fill: white; }
+
+        /* Register Section */
+        #register { padding: 80px 0; text-align: center; background: #1c1c1e; margin-top: 60px; color: #fff; border-radius: 50px 50px 0 0; }
         
-        /* Mobile Specific */
+        footer { background: #000; color: #86868b; padding: 40px 0; text-align: center; font-size: 14px; }
+
         @media (max-width: 768px) {
-            #hero h1 { font-size: 32px; }
-            #hero p { font-size: 16px; }
-        }
-        /* Floating Buttons Container */
-        .floating-container {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 999;
-        }
-
-        .floating-btn {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Facebook Button Color */
-        .btn-facebook {
-            background: #1877F2;
-        }
-
-        /* LINE Button Color */
-        .btn-line {
-            background: #06C755;
-        }
-
-        .floating-btn i {
-            font-size: 24px;
-        }
-
-        /* Tooltip text */
-        .floating-btn::before {
-            content: attr(data-label);
-            position: absolute;
-            right: 70px;
-            background: rgba(0,0,0,0.8);
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-
-        .floating-btn:hover::before {
-            opacity: 1;
-        }
-
-        /* Icon Font (SVG fallback) */
-        .icon-svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
+            #hero h1 { font-size: 36px; }
+            .service-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -138,77 +84,74 @@
     <div class="container">
         <nav>
             <a href="#" class="logo">🐻 หมีใหญ่ โมบาย อุดร</a>
-            <a href="#register" class="cta-btn">จองคิว</a>
+            <a href="#register" class="cta-btn" style="padding: 10px 20px; font-size: 14px;">จองคิวเลย</a>
         </nav>
     </div>
 </header>
 
 <section id="hero">
     <div class="container">
-        <h1>มือถือมีปัญหา<br>คิดถึงหมีใหญ่ อุดรฯ</h1>
-        <p>ศูนย์รวมบริการมือถือครบวงจร จองคิวล่วงหน้า<br>เพื่อรับบริการที่รวดเร็วและสิทธิ์พิเศษมากมาย</p>
+        <h1>หมีใหญ่ โมบาย อุดรธานี</h1>
+        <p>ซ่อมด่วน เช็คสิทธิ์ ซื้อ-ขาย-เทิร์น ครบจบในที่เดียว<br>การันตีงานคุณภาพโดยช่างผู้เชี่ยวชาญ</p>
+        <a href="#services" class="cta-btn">ดูบริการของเรา</a>
     </div>
 </section>
 
 <section id="services">
     <div class="container">
         <div class="service-grid">
-            
             <div class="service-card">
                 <div class="icon">🔧</div>
                 <h3>ซ่อมมือถือด่วน</h3>
-                <p>เปลี่ยนจอ เปลี่ยนแบต ซ่อมบอร์ด ลอกกระจก อะไหล่แท้ รับประกันงานซ่อม รอรับได้เลย</p>
-                <a href="#register" class="cta-btn full-btn">จองคิวซ่อม</a>
+                <p>หน้าจอแตก แบตเสื่อม เครื่องเปิดไม่ติด เราแก้ให้ได้ อะไหล่แท้เกรดพรีเมียม พร้อมประกันงานซ่อม</p>
+                <a href="#register" class="cta-btn">จองคิวซ่อม</a>
             </div>
-
             <div class="service-card">
                 <div class="icon">📱</div>
                 <h3>ซื้อ-ขาย-เทิร์น</h3>
-                <p>iPhone, Samsung, OPPO ศูนย์ไทยเครื่องแท้ 100% ให้ราคาสูง ย้ายข้อมูลฟรี!</p>
-                <a href="#register" class="cta-btn full-btn">เช็คราคาเทิร์น</a>
+                <p>อยากเปลี่ยนเครื่องใหม่? นำเครื่องเก่ามาตีราคาเทิร์นได้สูง iPhone, Samsung และแบรนด์ชั้นนำอื่นๆ</p>
+                <a href="#register" class="cta-btn">ประเมินราคา</a>
             </div>
-
             <div class="service-card">
-                <div class="icon">🚗</div>
-                <h3>บริการนอกสถานที่</h3>
-                <p>ไม่สะดวกมาหน้าร้าน เรามีบริการรับ-ส่งเครื่องซ่อมถึงบ้านในเขตอุดรธานี</p>
-                <a href="#register" class="cta-btn full-btn">เรียกช่างด่วน</a>
+                <div class="icon">✨</div>
+                <h3>เช็คสิทธิ์พิเศษ</h3>
+                <p>ลูกค้าประจำหมีใหญ่ โมบาย รับสิทธิ์ส่วนลดค่าอะไหล่และอุปกรณ์เสริมมากมาย เช็คได้ที่นี่</p>
+                <a href="#register" class="cta-btn">ตรวจสอบสิทธิ์</a>
             </div>
-            
         </div>
     </div>
 </section>
 
-<section id="register" style="padding: 60px 0; text-align: center; background: #1c1c1e; margin-top: 40px; color: #fff; border-radius: 40px 40px 0 0;">
+<section id="register">
     <div class="container">
-        <h2>พร้อมรับบริการแล้วหรือยัง?</h2>
-        <p style="color: #a1a1a6; margin: 15px 0 30px; font-weight: 300;">กรุณากรอกข้อมูลเพื่อตรวจสอบสิทธิ์และจองคิวล่วงหน้า</p>
+        <h2 style="font-size: 32px; margin-bottom: 20px;">ลงทะเบียนจองคิวรับบริการ</h2>
+        <p style="color: #a1a1a6; margin-bottom: 40px;">กรุณากรอกข้อมูลผ่านระบบอัตโนมัติ เพื่อความรวดเร็วในการรับบริการ</p>
         
-        <a href="https://script.google.com/macros/s/AKfycbx9Wiw66Lu6wDhxGUSisg4fJNlgAZr8HQeXP5k1B16d_apgtSUs2icxGaD7L_4KzL_6wg/exec" target="_blank" class="cta-btn" style="font-size: 18px; padding: 18px 40px;">🛒 กดเพื่อจองคิวรับบริการ</a>
+        <a href="https://script.google.com/macros/s/AKfycbx9Wiw66Lu6wDhxGUSisg4fJNlgAZr8HQeXP5k1B16d_apgtSUs2icxGaD7L_4KzL_6wg/exec" target="_blank" class="cta-btn" style="font-size: 20px; padding: 20px 50px;">🛒 เข้าสู่หน้าลงทะเบียนจองคิว</a>
+        
+        <p style="margin-top: 25px; font-size: 14px; color: #6e6e73;">*ข้อมูลของคุณจะถูกเก็บเป็นความลับและใช้เพื่อการจองคิวเท่านั้น</p>
     </div>
 </section>
 
 <footer>
     <div class="container">
-        <p>&copy; 2024 หมีใหญ่ โมบาย อุดรธานี. All rights reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.facebook.com/bigbear.mobile" target="_blank">Facebook</a> |
-            <a href="https://line.me/ti/p/@024kwxvw" target="_blank">Line OA</a>
-        </div>
+        <p>&copy; 2026 หมีใหญ่ โมบาย อุดรธานี. All rights reserved.</p>
+        <p style="margin-top: 10px;">ตั้งอยู่ที่: อุดรธานี (โทรสอบถามเส้นทางได้ที่ Facebook)</p>
     </div>
 </footer>
-<div class="floating-container">
-        <a href="https://www.facebook.com/bigbear.mobile" target="_blank" class="floating-btn btn-facebook" data-label="ทัก Facebook">
-            <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-        </a>
 
-        <a href="https://line.me/ti/p/@024kwxvw" target="_blank" class="floating-btn btn-line" data-label="คุยใน LINE">
-            <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M19.228 10.32c.115-.028.223-.057.322-.085-.141-.035-.282-.07-.423-.105.155-.035.31-.07.465-.105-.127-.03-.254-.06-.381-.091.177-.036.353-.072.53-.108-.134-.03-.267-.061-.401-.09.183-.035.366-.07.549-.105-.148-.03-.296-.06-.444-.09.184-.035.368-.07.552-.105-.156-.03-.311-.06-.466-.09.184-.035.368-.07.552-.104-.156-.03-.311-.06-.466-.09.183-.035.366-.071.549-.106-.155-.03-.311-.061-.466-.091.176-.035.353-.07.53-.105-.141-.03-.282-.06-.423-.09.169-.035.338-.07.508-.105-.141-.03-.282-.061-.423-.09.162-.036.325-.072.487-.107-.12-.027-.24-.055-.36-.082.162-.035.325-.07.487-.105l.322-.07c-.438-.117-.875-.233-1.313-.35l-.014.004c.036-.008.071-.016.107-.024-.015-.004-.03-.007-.044-.011.05-.011.099-.022.148-.033-.035-.008-.07-.016-.105-.024.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.015.021-.005.042-.01.063-.015l-.478-.115c-.445-.119-.89-.238-1.336-.356l-.013.004c.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.014.021-.005.042-.01.063-.015l-.547-.13c-.453-.122-.906-.243-1.36-.365l-.014.004c.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.014.021-.005.042-.01.063-.015l-.613-.146c-.461-.124-.922-.249-1.383-.374l-.013.003c.042-.009.085-.019.127-.028-.021-.005-.042-.009-.063-.014.021-.005.042-.009.063-.014l-.683-.163c-.469-.127-.937-.254-1.406-.381l-.013.003c.042-.009.085-.018.127-.028-.021-.005-.042-.009-.063-.014.021-.005.042-.009.063-.014l-.75-.178c-.477-.13-.954-.26-1.431-.39l-.013.004c.042-.009.084-.018.127-.027-.022-.005-.042-.009-.064-.014l-.82-.194c-.485-.133-.969-.265-1.454-.398l-.013.004c.042-.009.085-.018.127-.027-.022-.005-.042-.009-.064-.014.022-.005.043-.009.064-.014L3.63 7.854c-2.31 1.583-3.63 3.51-3.63 5.432 0 4.197 6.131 7.6 13.693 7.6 1.201 0 2.355-.088 3.444-.251l2.564 1.53c.125.074.282.115.44.115.12 0 .239-.025.351-.074.223-.099.367-.326.367-.57v-2.09c1.983-.984 3.14-2.28 3.14-3.673 0-.173-.019-.343-.056-.508zM6.436 15.65H4.282c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v3.193h1.204c.198 0 .358.161.358.358v.592c0 .198-.16.359-.358.359zm2.41 0h-.592c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v4.144c0 .198-.16.358-.358.358zm5.282 0h-1.011l-1.637-2.345v1.987c0 .198-.16.358-.358.358h-.592c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h1.011l1.637 2.346v-1.988c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v4.144c0 .198-.161.358-.358.358zm3.328-2.618h-1.204v.715h1.204c.198 0 .358.161.358.358v.592c0 .198-.16.358-.358.358h-2.154c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h2.154c.198 0 .358.161.358.358v.592c0 .198-.16.358-.358.358h-1.204v.611h1.204c.198 0 .358.161.358.358v.592c0 .198-.161.359-.358.359z"/>
-            </svg>
-        </a>
-    </div>
+<div class="floating-container">
+    <a href="https://line.me/ti/p/@024kwxvw" target="_blank" class="floating-btn btn-line">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M19.228 10.32c.115-.028.223-.057.322-.085-.141-.035-.282-.07-.423-.105.155-.035.31-.07.465-.105-.127-.03-.254-.06-.381-.091.177-.036.353-.072.53-.108-.134-.03-.267-.061-.401-.09.183-.035.366-.07.549-.105-.148-.03-.296-.06-.444-.09.184-.035.368-.07.552-.105-.156-.03-.311-.06-.466-.09.184-.035.368-.07.552-.105-.156-.03-.311-.06-.466-.09.183-.035.366-.071.549-.106-.155-.03-.311-.061-.466-.091.176-.035.353-.07.53-.105-.141-.03-.282-.06-.423-.09.169-.035.338-.07.508-.105-.141-.03-.282-.061-.423-.09.162-.036.325-.072.487-.107-.12-.027-.24-.055-.36-.082.162-.035.325-.07.487-.105l.322-.07c-.438-.117-.875-.233-1.313-.35l-.014.004c.036-.008.071-.016.107-.024-.015-.004-.03-.007-.044-.011.05-.011.099-.022.148-.033-.035-.008-.07-.016-.105-.024.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.015.021-.005.042-.01.063-.015l-.478-.115c-.445-.119-.89-.238-1.336-.356l-.013.004c.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.014.021-.005.042-.01.063-.015l-.547-.13c-.453-.122-.906-.243-1.36-.365l-.014.004c.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.014.021-.005.042-.01.063-.015l-.613-.146c-.461-.124-.922-.249-1.383-.374l-.013.003c.042-.009.085-.019.127-.028-.021-.005-.042-.009-.063-.014.021-.005.042-.009.063-.014l-.683-.163c-.469-.127-.937-.254-1.406-.381l-.013.003c.042-.009.085-.018.127-.028-.021-.005-.042-.009-.063-.014.021-.005.042-.009.063-.014l-.75-.178c-.477-.13-.954-.26-1.431-.39l-.013.004c.042-.009.084-.018.127-.027-.022-.005-.042-.009-.064-.014l-.82-.194c-.485-.133-.969-.265-1.454-.398l-.013.004c.042-.009.085-.018.127-.027-.022-.005-.042-.009-.064-.014.022-.005.043-.009.064-.014L3.63 7.854c-2.31 1.583-3.63 3.51-3.63 5.432 0 4.197 6.131 7.6 13.693 7.6 1.201 0 2.355-.088 3.444-.251l2.564 1.53c.125.074.282.115.44.115.12 0 .239-.025.351-.074.223-.099.367-.326.367-.57v-2.09c1.983-.984 3.14-2.28 3.14-3.673 0-.173-.019-.343-.056-.508zM6.436 15.65H4.282c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v3.193h1.204c.198 0 .358.161.358.358v.592c0 .198-.16.359-.358.359zm2.41 0h-.592c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v4.144c0 .198-.16.358-.358.358zm5.282 0h-1.011l-1.637-2.345v1.987c0 .198-.16.358-.358.358h-.592c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h1.011l1.637 2.346v-1.988c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v4.144c0 .198-.161.358-.358.358zm3.328-2.618h-1.204v.715h1.204c.198 0 .358.161.358.358v.592c0 .198-.16.358-.358.358h-2.154c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h2.154c.198 0 .358.161.358.358v.592c0 .198-.16.358-.358.358h-1.204v.611h1.204c.198 0 .358.161.358.358v.592c0 .198-.161.359-.358.359z"/>
+        </svg>
+    </a>
+    <a href="https://www.facebook.com/bigbear.mobile" target="_blank" class="floating-btn btn-facebook">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </a>
+</div>
+
 </body>
 </html>
