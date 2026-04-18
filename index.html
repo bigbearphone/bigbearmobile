@@ -1,178 +1,133 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ผ่อนมือถือ อุดรธานี ดาวน์ 0 บาท</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>หมีใหญ่ โมบาย อุดรธานี | ร้านมือถืออันดับ 1 จองคิวซ่อม-ซื้อ-เทิร์น</title>
+    <meta name="description" content="หมีใหญ่ โมบาย อุดรธานี บริการซ่อมมือถือด่วน ซื้อ-ขาย-เทิร์นเครื่องแท้ ศูนย์รวมมือถือราคาถูกในอุดร จองคิวรับบริการล่วงหน้าได้ที่นี่">
+    <meta name="keywords" content="หมีใหญ่โมบาย, ร้านมือถืออุดรธานี, ซ่อมมือถืออุดร, ซื้อหลังมือถืออุดร, เทิร์นมือถืออุดร, iPhoneราคาถูกอุดร, Samsungราคาถูกอุดร">
+    
+    <meta property="og:title" content="หมีใหญ่ โมบาย อุดรธานี | จองคิวรับบริการ">
+    <meta property="og:description" content="ศูนย์รวมมือถือและบริการครบวงจรในอุดรธานี จองคิวล่วงหน้าเพื่อรับสิทธิ์พิเศษ">
+    <meta property="og:image" content="https://yourusername.github.io/bigbear-mobile/og-image.jpg"> <meta property="og:url" content="https://yourusername.github.io/bigbear-mobile/">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐻</text></svg>">
 
-<meta name="description" content="ผ่อนมือถือ ใช้บัตรประชาชนใบเดียว อนุมัติไว 30 นาที รู้ผล">
-
-<style>
-body{
-  margin:0;
-  font-family:-apple-system, BlinkMacSystemFont;
-  background:#f5f5f7;
-}
-
-/* HERO */
-.hero{
-  padding:60px 20px;
-  text-align:center;
-}
-.hero h1{
-  font-size:28px;
-  font-weight:700;
-}
-.hero p{
-  color:#666;
-}
-
-/* CARD */
-.card{
-  background:#fff;
-  margin:20px;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* FORM */
-input,select{
-  width:100%;
-  padding:16px;
-  margin-top:10px;
-  border-radius:12px;
-  border:1px solid #ddd;
-}
-
-button{
-  width:100%;
-  padding:16px;
-  margin-top:20px;
-  border:none;
-  border-radius:12px;
-  background:#0071e3;
-  color:#fff;
-  font-size:16px;
-}
-
-/* FLOAT BTN */
-.float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#06c755;
-  color:#fff;
-  padding:16px;
-  border-radius:50px;
-  font-size:14px;
-}
-
-/* LOADING */
-#loading{
-  display:none;
-  text-align:center;
-  margin-top:10px;
-}
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --primary: #0a84ff; --bg: #f5f5f7; --card-bg: #fff; --text: #1d1d1f; --text-sub: #86868b; }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #000; --card-bg: #1c1c1e; --text: #fff; --text-sub: #a1a1a6; }
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Kanit', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
+        
+        /* Utility */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: rgba(28,28,30,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 20px; font-weight: 600; text-decoration: none; color: #fff; display: flex; align-items: center; gap: 8px; }
+        
+        /* Hero Section */
+        #hero { padding: 120px 0 60px; text-align: center; }
+        #hero h1 { font-size: 40px; font-weight: 600; line-height: 1.1; margin-bottom: 15px; background: linear-gradient(135deg, #fff 0%, #0a84ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #hero p { font-size: 18px; color: var(--text-sub); margin-bottom: 30px; font-weight: 300; }
+        
+        /* Services Section (eCommerce style) */
+        #services { padding: 40px 0; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; align-items: flex-start; }
+        .service-card:hover { transform: translateY(-5px); border-color: rgba(10,132,255,0.2); }
+        .icon { font-size: 30px; margin-bottom: 15px; color: var(--primary); }
+        .service-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .service-card p { color: var(--text-sub); font-size: 15px; font-weight: 300; margin-bottom: 20px; flex-grow: 1; }
+        
+        /* CTA Button */
+        .cta-btn { display: inline-block; padding: 14px 28px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 15px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(10,132,255,0.3); }
+        .cta-btn:hover { background: #0071e3; transform: scale(1.03); }
+        .full-btn { width: 100%; text-align: center; margin-top: auto; }
+        
+        /* Footer */
+        footer { background: #1c1c1e; color: #8e8e93; padding: 40px 0; text-align: center; font-size: 14px; margin-top: 60px; }
+        footer a { color: #8e8e93; text-decoration: none; margin: 0 10px; }
+        
+        /* Mobile Specific */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 32px; }
+            #hero p { font-size: 16px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>ผ่อนมือถือ อนุมัติไว 30 นาที</h1>
-  <p>ใช้บัตรประชาชนใบเดียว | ดาวน์ 0 บาท</p>
-</div>
+<header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">🐻 หมีใหญ่ โมบาย อุดร</a>
+            <a href="#register" class="cta-btn">จองคิว</a>
+        </nav>
+    </div>
+</header>
 
-<!-- FORM -->
-<div class="card">
-<form id="form">
+<section id="hero">
+    <div class="container">
+        <h1>มือถือมีปัญหา<br>คิดถึงหมีใหญ่ อุดรฯ</h1>
+        <p>ศูนย์รวมบริการมือถือครบวงจร จองคิวล่วงหน้า<br>เพื่อรับบริการที่รวดเร็วและสิทธิ์พิเศษมากมาย</p>
+    </div>
+</section>
 
-<select name="service" required>
-<option value="">เลือกบริการ</option>
-<option>เข้ารับบริการหน้าร้าน</option>
-<option>รับบริการนอกสถานที่</option>
-</select>
+<section id="services">
+    <div class="container">
+        <div class="service-grid">
+            
+            <div class="service-card">
+                <div class="icon">🔧</div>
+                <h3>ซ่อมมือถือด่วน</h3>
+                <p>เปลี่ยนจอ เปลี่ยนแบต ซ่อมบอร์ด ลอกกระจก อะไหล่แท้ รับประกันงานซ่อม รอรับได้เลย</p>
+                <a href="#register" class="cta-btn full-btn">จองคิวซ่อม</a>
+            </div>
 
-<select name="time" id="time"></select>
+            <div class="service-card">
+                <div class="icon">📱</div>
+                <h3>ซื้อ-ขาย-เทิร์น</h3>
+                <p>iPhone, Samsung, OPPO ศูนย์ไทยเครื่องแท้ 100% ให้ราคาสูง ย้ายข้อมูลฟรี!</p>
+                <a href="#register" class="cta-btn full-btn">เช็คราคาเทิร์น</a>
+            </div>
 
-<input type="text" name="name" placeholder="ชื่อเล่น" required>
+            <div class="service-card">
+                <div class="icon">🚗</div>
+                <h3>บริการนอกสถานที่</h3>
+                <p>ไม่สะดวกมาหน้าร้าน เรามีบริการรับ-ส่งเครื่องซ่อมถึงบ้านในเขตอุดรธานี</p>
+                <a href="#register" class="cta-btn full-btn">เรียกช่างด่วน</a>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
-<input type="tel" name="phone" placeholder="เบอร์โทร 10 หลัก" pattern="0[0-9]{9}" required>
+<section id="register" style="padding: 60px 0; text-align: center; background: #1c1c1e; margin-top: 40px; color: #fff; border-radius: 40px 40px 0 0;">
+    <div class="container">
+        <h2>พร้อมรับบริการแล้วหรือยัง?</h2>
+        <p style="color: #a1a1a6; margin: 15px 0 30px; font-weight: 300;">กรุณากรอกข้อมูลเพื่อตรวจสอบสิทธิ์และจองคิวล่วงหน้า</p>
+        
+        <a href="YOUR_GOOGLE_APPS_SCRIPT_URL" target="_blank" class="cta-btn" style="font-size: 18px; padding: 18px 40px;">🛒 กดเพื่อจองคิวรับบริการ</a>
+    </div>
+</section>
 
-<select name="income">
-<option>5000-15000</option>
-<option>15000-25000</option>
-<option>25000+++</option>
-</select>
-
-<select name="brand">
-<option>Apple</option>
-<option>Samsung</option>
-<option>OPPO</option>
-<option>VIVO</option>
-<option>Xiaomi</option>
-<option>iQoo</option>
-<option>Infinix</option>
-</select>
-
-<button type="submit">ลงทะเบียนตอนนี้</button>
-
-</form>
-
-<div id="loading">⏳ กำลังส่งข้อมูล...</div>
-</div>
-
-<!-- FLOAT LINE -->
-<a class="float" href="https://line.me/R/ti/p/@024kwxvw">
-  แอด LINE
-</a>
-
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyMnM27p3Zl5aOUyMb4dYyz9sBFe4YmTRAC_UBZ3GIdmeUOxaGxqGt6yNjp8aw_iWbqGA/exec";
-
-// 🔥 สร้างเวลา
-const time = document.getElementById("time");
-for(let i=10;i<=20;i++){
-  let t = (i<10?"0":"")+i+":00";
-  let opt = document.createElement("option");
-  opt.value = t;
-  opt.text = "เวลา " + t;
-  time.appendChild(opt);
-}
-
-document.getElementById("form").addEventListener("submit", async function(e){
-  e.preventDefault();
-
-  const data = Object.fromEntries(new FormData(this).entries());
-
-  document.getElementById("loading").style.display="block";
-
-  try{
-    const res = await fetch(scriptURL,{
-      method:"POST",
-      body: JSON.stringify(data)
-    });
-
-    const result = await res.text();
-    console.log("RESULT:", result);
-
-    if(result.includes("OK")){
-      alert("✅ ส่งสำเร็จ");
-      window.open("https://line.me/R/ti/p/@024kwxvw");
-    }else{
-      alert("❌ มีปัญหา: " + result);
-    }
-
-  }catch(err){
-    console.error(err);
-    alert("❌ ส่งไม่สำเร็จ");
-  }
-
-  document.getElementById("loading").style.display="none";
-});
-</script>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 หมีใหญ่ โมบาย อุดรธานี. All rights reserved.</p>
+        <div style="margin-top: 10px;">
+            <a href="https://www.facebook.com/bigbear.mobile" target="_blank">Facebook</a> |
+            <a href="https://line.me/ti/p/@024kwxvw" target="_blank">Line OA</a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
