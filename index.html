@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>ผ่อนมือถืออุดรธานี ดาวน์ 0 บาท | หมีใหญ่ โมบาย อุดรธานี ใช้บัตรประชาชนใบเดียว</title>
-    <meta name="description" content="หมีใหญ่ โมบาย อุดรธานี บริการผ่อนมือถือผ่าน Samsung Finance, SG Finance, Niracha Finance ดาวน์เริ่มต้น 0 บาท ไม่ต้องมีคนค้ำ ไม่ต้องใช้บัตรเครดิต เช็คสิทธิ์นอกสถานที่ทั่วอุดรธานี">
+    <meta name="description" content="หมีใหญ่ โมบาย อุดรธานี บริการผ่อนมือถือผ่าน Samsung Finance+, SG Finance, Niracha Finance ดาวน์เริ่มต้น 0 บาท ไม่ต้องมีคนค้ำ ไม่ต้องใช้บัตรเครดิต เช็คสิทธิ์นอกสถานที่ทั่วอุดรธานี">
     <meta name="keywords" content="ผ่อนมือถืออุดรธานี, Samsung Finance อุดร, SG Finance อุดร, Niracha Finance, ผ่อนมือถือไม่ใช้บัตรเครดิต, หมีใหญ่โมบาย">
     
     <meta property="og:title" content="หมีใหญ่ โมบาย อุดรธานี | ผ่อนมือถือดาวน์ 0 บาท">
@@ -45,8 +45,17 @@
         .h-item h4 { color: var(--primary); font-size: 20px; margin-bottom: 5px; }
 
         /* Partner Section */
-        .partners { background: rgba(10, 132, 255, 0.1); padding: 20px; border-radius: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; align-items: center; margin-top: 40px; }
-        .partner-name { font-weight: 600; color: var(--text); opacity: 0.8; }
+        .partners { background: rgba(10, 132, 255, 0.05); padding: 30px; border-radius: 25px; margin-top: 50px; border: 1px solid rgba(10, 132, 255, 0.1); }
+        .partners-title { font-size: 14px; color: var(--text-sub); margin-bottom: 20px; font-weight: 300; text-transform: uppercase; letter-spacing: 1px; }
+        .partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: center; }
+        .partner-logo-img { height: 45px; width: auto; max-width: 150px; object-fit: contain; filter: grayscale(100%) opacity(0.7); transition: 0.3s; }
+        @media (prefers-color-scheme: dark) {
+            .partner-logo-img { filter: grayscale(100%) opacity(0.7) invert(1); }
+        }
+        .partner-logo-img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.05); }
+        @media (prefers-color-scheme: dark) {
+            .partner-logo-img:hover { filter: grayscale(0%) opacity(1) invert(0); }
+        }
 
         /* Services */
         #services { padding: 60px 0; }
@@ -70,6 +79,8 @@
 
         @media (max-width: 768px) {
             #hero h1 { font-size: 32px; }
+            .partners-logos { gap: 20px; }
+            .partner-logo-img { height: 35px; }
         }
     </style>
 </head>
@@ -97,10 +108,12 @@
         </div>
 
         <div class="partners">
-            <span style="font-size: 14px; width: 100%; margin-bottom: 10px; opacity: 0.6;">พันธมิตรสินเชื่ออย่างเป็นทางการ</span>
-            <span class="partner-name">Samsung Finance+</span>
-            <span class="partner-name">SG Finance</span>
-            <span class="partner-name">Niracha Finance</span>
+            <p class="partners-title">พันธมิตรสินเชื่ออย่างเป็นทางการ</p>
+            <div class="partners-logos">
+                <img src="https://moneyandbanking.co.th/wp-content/uploads/2024/04/%E0%B8%94%E0%B8%B2%E0%B8%A7%E0%B8%99%E0%B9%8C%E0%B9%82%E0%B8%AB%E0%B8%A5%E0%B8%94.webp" alt="Samsung Finance+" class="partner-logo-img">
+                <img src="https://www.ais.th/content/dam/ais/consumer/content/promotion/finance/logo-sg-new-2.png" alt="SG Finance" class="partner-logo-img">
+                <img src="https://s.imgz.io/2026/04/22/Niracha1eaae67e18a8d6e5.png" alt="Niracha Finance" class="partner-logo-img">
+            </div>
         </div>
     </div>
 </section>
