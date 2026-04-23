@@ -170,39 +170,46 @@
             object-fit: cover;
         }
 
-        /* --- CTA Section --- */
-        .register-section {
-            background: linear-gradient(to top, #2e1a47, #0f0f0f);
-            padding: 120px 20px;
-        }
-        .cta-box {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 60px;
-            border-radius: 40px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            display: inline-block;
-            width: 100%;
-            max-width: 700px;
-        }
-        .btn-link {
-            display: inline-block;
-            padding: 22px 50px;
-            background: var(--accent-purple);
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: 0.3s;
-            box-shadow: 0 15px 40px rgba(142, 36, 170, 0.4);
-            margin-top: 30px;
-        }
-        .btn-link:hover {
-            background: #ab47bc;
-            box-shadow: 0 20px 50px rgba(142, 36, 170, 0.6);
-            transform: scale(1.05);
-        }
+        /* --- ส่วนที่ปรับปรุงใหม่ใน CTA Section --- */
+.register-section {
+    background: linear-gradient(to top, #2e1a47, #0f0f0f);
+    padding: 80px 20px; /* ปรับ padding ให้พอดีกับมือถือ */
+    display: flex;
+    justify-content: center;
+}
+
+.cta-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px 20px; /* ปรับ padding ในกล่องให้กระชับขึ้น */
+    border-radius: 40px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    
+    /* แก้ไขจุดนี้: ใช้ Flex แทน inline-block เพื่อให้ตรงกลางเป๊ะ */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box; /* ป้องกันการขยายตัวเกินหน้าจอ */
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 18px 30px; /* ปรับขนาดปุ่มให้พอดีกับหน้าจอมือถือ */
+    background: var(--accent-purple);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; /* ปรับ font เล็กลงนิดหน่อยเพื่อให้ไม่ล้นบรรทัดในมือถือ */
+    font-weight: 600;
+    border-radius: 50px;
+    transition: 0.3s;
+    box-shadow: 0 15px 40px rgba(142, 36, 170, 0.4);
+    margin-top: 30px;
+    width: fit-content; /* ให้ปุ่มกว้างตามเนื้อหา */
+}
 
         footer { padding: 40px; opacity: 0.5; font-size: 0.9rem; border-top: 1px solid var(--glass); text-align: center; }
 
