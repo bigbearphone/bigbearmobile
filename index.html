@@ -3,165 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>ผ่อนมือถืออุดรธานี ดาวน์ 0 บาท | หมีใหญ่ โมบาย อุดรธานี ใช้บัตรประชาชนใบเดียว</title>
-    <meta name="description" content="หมีใหญ่ โมบาย อุดรธานี บริการผ่อนมือถือผ่าน Samsung Finance+, SG Finance, Niracha Finance ดาวน์เริ่มต้น 0 บาท ไม่ต้องมีคนค้ำ ไม่ต้องใช้บัตรเครดิต เช็คสิทธิ์นอกสถานที่ทั่วอุดรธานี">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐻</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>หมีใหญ่ โมบาย อุดรธานี | Mee Yai Mobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #0a84ff; --bg: #f5f5f7; --card-bg: #fff; --text: #1d1d1f; --text-sub: #86868b; 
-            --line-color: #06C755; --fb-color: #1877F2;
+        :root {
+            --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f3e5f5 50%, #1a1a1a 100%);
+            --dark-bg: #0f0f0f;
+            --accent-purple: #8e24aa;
+            --text-main: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
         }
-        @media (prefers-color-scheme: dark) {
-            :root { --bg: #000; --card-bg: #1c1c1e; --text: #fff; --text-sub: #a1a1a6; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Kanit', 'Inter', sans-serif;
+            overflow-x: hidden;
         }
+
+        section { padding: 80px 20px; text-align: center; }
+        .container { max-width: 1200px; margin: 0 auto; }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Kanit', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header */
-        header { background: rgba(28,28,30,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 20px; font-weight: 600; text-decoration: none; color: #fff; display: flex; align-items: center; gap: 8px; }
-        
-        /* Hero Section */
-        #hero { padding: 160px 0 60px; text-align: center; }
-        .badge { background: var(--primary); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 14px; margin-bottom: 20px; display: inline-block; }
-        #hero h1 { font-size: 45px; font-weight: 600; line-height: 1.2; margin-bottom: 20px; }
-        #hero p { font-size: 18px; color: var(--text-sub); margin-bottom: 35px; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; font-weight: 600; }
 
-        /* Brands Section */
-        .brands-section { padding: 40px 0; background: var(--card-bg); border-radius: 30px; margin: 40px 0; border: 1px solid rgba(255,255,255,0.05); }
-        .brands-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: center; padding: 20px; }
-        .brand-item { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 80px; transition: 0.3s; opacity: 0.8; }
-        .brand-item:hover { transform: translateY(-5px); opacity: 1; }
-        .brand-logo { width: 45px; height: 45px; object-fit: contain; filter: grayscale(100%); }
-        @media (prefers-color-scheme: dark) { .brand-logo { filter: grayscale(100%) invert(1); } }
-        .brand-item:hover .brand-logo { filter: grayscale(0%) invert(0); }
-        .brand-name { font-size: 12px; font-weight: 400; color: var(--text-sub); }
-
-        /* Partner Section */
-        .partners { background: rgba(10, 132, 255, 0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(10, 132, 255, 0.1); margin-top: 30px; }
-        .partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; align-items: center; }
-        .partner-logo-img { height: 40px; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
-        .partner-logo-img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-
-        /* Register & Services */
-        #services { padding: 60px 0; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .service-card { background: var(--card-bg); padding: 40px; border-radius: 28px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        
-        .cta-btn { display: inline-block; padding: 18px 36px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; text-align: center; }
-        .cta-btn:hover { background: #0071e3; transform: scale(1.05); }
-
-        #register { padding: 80px 0; text-align: center; background: #1c1c1e; margin-top: 60px; color: #fff; border-radius: 50px 50px 0 0; }
-        footer { background: #000; color: #86868b; padding: 40px 0; text-align: center; font-size: 14px; }
-
-        /* Floating Buttons */
-        .floating-container { position: fixed; bottom: 30px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
-        .floating-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-        .btn-facebook { background: var(--fb-color); }
-        .btn-line { background: var(--line-color); }
-
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 32px; }
-            .brand-item { width: 70px; }
-            .brand-logo { width: 35px; }
+        /* --- Section 1: Hero --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #2e1a47 0%, #0f0f0f 100%);
         }
+        .hero-content h1 { font-size: 4rem; margin: 0; background: linear-gradient(to right, #fff, #8e24aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-content p { font-size: 1.2rem; opacity: 0.8; }
+
+        /* --- Section 2: Brand Section --- */
+        .brand-section { background: #151515; }
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        .brand-item svg {
+            width: 100px;
+            height: auto;
+            fill: #666;
+            transition: 0.3s;
+            filter: grayscale(1);
+        }
+        .brand-item:hover svg { fill: #fff; filter: grayscale(0); transform: scale(1.1); }
+
+        /* --- Section 3: Service Section --- */
+        .service-section { background: var(--dark-bg); }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        .service-card:hover { border-color: var(--accent-purple); background: rgba(142, 36, 170, 0.1); }
+
+        /* --- Section 4: Partners Section --- */
+        .partners-section { background: #151515; }
+        .partner-logos { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; opacity: 0.7; }
+        .partner-logos img { height: 40px; filter: brightness(0) invert(1); }
+
+        /* --- Section 5: Register Section --- */
+        .register-section {
+            background: linear-gradient(to bottom, #0f0f0f, #2e1a47);
+        }
+        .reg-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.03);
+            padding: 40px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover { background: #ab47bc; box-shadow: 0 0 20px rgba(142, 36, 170, 0.5); }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <nav>
-            <a href="#" class="logo">🐻 หมีใหญ่ โมบาย อุดร</a>
-            <a href="#register" class="cta-btn" style="padding: 10px 20px; font-size: 14px;">เช็คสิทธิ์เลย</a>
-        </nav>
-    </div>
-</header>
-
-<section id="hero">
-    <div class="container">
-        <span class="badge">ใช้เพียงบัตรประชาชนใบเดียว</span>
-        <h1>ผ่อนมือถืออุดรฯ <br><span style="color:var(--primary)">ดาวน์เริ่มต้น 0 บาท</span></h1>
-        <p>ศูนย์รวมสมาร์ทโฟนเครื่องแท้ ศูนย์ไทย ครบทุกแบรนด์ดัง</p>
-
-        <div class="brands-section">
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 15px;">แบรนด์ชั้นนำที่วางจำหน่าย</p>
-            <div class="brands-grid">
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="brand-logo"><span class="brand-name">Apple</span></div>
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Samsung_logo_wordmark.svg/960px-Samsung_logo_wordmark.svg.png?_=20240805151810" class="brand-logo"><span class="brand-name">Samsung</span></div>
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg" class="brand-logo"><span class="brand-name">Xiaomi</span></div>
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vivo_logo_2019.svg/640px-Vivo_logo_2019.svg.png" class="brand-logo"><span class="brand-name">VIVO</span></div>
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/OPPO_logo.svg/640px-OPPO_logo.svg.png" class="brand-logo"><span class="brand-name">OPPO</span></div>
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/IQOO_logo.svg/640px-IQOO_logo.svg.png" class="brand-logo"><span class="brand-name">iQOO</span></div>
-                <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Infinix_logo.svg/640px-Infinix_logo.svg.png" class="brand-logo"><span class="brand-name">Infinix</span></div>
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>หมีใหญ่ โมบาย</h1>
+            <p>อุดรธานี | ตัวจริงเรื่องมือถือและสินเชื่อเงินผ่อน</p>
         </div>
+    </section>
 
-    
+    <section class="brand-section">
+    <div class="container">
+        <h2>แบรนด์ชั้นนำที่วางจำหน่าย</h2>
+        <div class="brand-grid">
+            
+            <div class="brand-item">
+                <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m13.0729 17.6825a3.61 3.61 0 0 0 -1.7248 3.0365 3.5132 3.5132 0 0 0 2.1379 3.2223 8.394 8.394 0 0 1 -1.0948 2.2618c-.6816.9812-1.3943 1.9623-2.4787 1.9623s-1.3633-.63-2.613-.63c-1.2187 0-1.6525.6507-2.644.6507s-1.6834-.9089-2.4787-2.0243a9.7842 9.7842 0 0 1 -1.6628-5.2776c0-3.0984 2.014-4.7405 3.9969-4.7405 1.0535 0 1.9314.6919 2.5924.6919.63 0 1.6112-.7333 2.8092-.7333a3.7579 3.7579 0 0 1 3.1604 1.5802zm-3.7284-2.8918a3.5615 3.5615 0 0 0 .8469-2.22 1.5353 1.5353 0 0 0 -.031-.32 3.5686 3.5686 0 0 0 -2.3445 1.2084 3.4629 3.4629 0 0 0 -.8779 2.1585 1.419 1.419 0 0 0 .031.2892 1.19 1.19 0 0 0 .2169.0207 3.0935 3.0935 0 0 0 2.1586-1.1368z"></path>
+                </svg>
+            </div>
+
+            <div class="brand-item">
+                <svg width="130" height="29" viewBox="0 0 130 29">
+                    <g transform="translate(-250 -7)">
+                        <path d="M0,13.835V12.482H4.609V14.2a1.558,1.558,0,0,0,1.724,1.6A1.509,1.509,0,0,0,8,14.6a2.237,2.237,0,0,0-.03-1.322C7.076,10.976.981,9.931.208,6.333a6.531,6.531,0,0,1-.029-2.4C.654,1.045,3.122,0,6.184,0c2.438,0,5.8.585,5.8,4.458V5.719H7.7V4.612a1.492,1.492,0,0,0-1.605-1.6,1.452,1.452,0,0,0-1.575,1.2,2.468,2.468,0,0,0,.03.922c.5,2.059,7.017,3.167,7.73,6.887a8.481,8.481,0,0,1,.029,2.921C11.892,17.893,9.336,19,6.244,19,3,19,0,17.8,0,13.835Zm55.837-.062V12.421h4.549v1.691a1.533,1.533,0,0,0,1.695,1.6,1.49,1.49,0,0,0,1.665-1.168,2.147,2.147,0,0,0-.029-1.292c-.863-2.274-6.9-3.319-7.671-6.917a6.37,6.37,0,0,1-.03-2.367c.476-2.859,2.944-3.9,5.946-3.9,2.409,0,5.739.615,5.739,4.427v1.23H63.449V4.643a1.485,1.485,0,0,0-1.575-1.6,1.4,1.4,0,0,0-1.546,1.168,2.463,2.463,0,0,0,.029.922C60.832,7.194,67.284,8.27,68,11.959a8.314,8.314,0,0,1,.029,2.89c-.416,2.952-2.943,4.028-6.005,4.028C58.811,18.877,55.837,17.678,55.837,13.773Zm16.293.647A7.18,7.18,0,0,1,72.1,13.25V.523h4.341V13.65a5.023,5.023,0,0,0,.029.677,1.682,1.682,0,0,0,3.271,0,4.852,4.852,0,0,0,.03-.677V.523h4.341V13.25c0,.339-.03.984-.03,1.169-.3,3.319-2.825,4.4-5.976,4.4S72.428,17.739,72.13,14.419Zm35.739-.185a9.539,9.539,0,0,1-.059-1.168V5.6c0-.308.029-.861.059-1.169.386-3.319,2.973-4.365,6.036-4.365,3.033,0,5.708,1.045,6.006,4.365A8.781,8.781,0,0,1,119.94,5.6v.584H115.6V5.2a3.791,3.791,0,0,0-.059-.677,1.777,1.777,0,0,0-3.42,0,3.772,3.772,0,0,0-.059.829v8.117a5.1,5.1,0,0,0,.03.677,1.707,1.707,0,0,0,1.813,1.291,1.633,1.633,0,0,0,1.754-1.291,2.554,2.554,0,0,0,.03-.677V10.883h-1.754V8.3H120v4.765a9.377,9.377,0,0,1-.06,1.168c-.3,3.228-3,4.366-6.036,4.366S108.166,17.462,107.869,14.235Zm-60.5,4.027L47.245,1.845,44.272,18.262H39.931L36.987,1.845l-.118,16.417H32.587L32.943.554h6.988L42.1,14.388,44.272.554h6.987l.386,17.708Zm-22.835,0L22.211,1.845,19.831,18.262H15.194L18.344.554h7.642l3.152,17.708Zm72.665-.184L92.884,3.352l.238,14.726H88.9V.554h6.363l4.044,14.265L99.068.554h4.251V18.078Z" transform="translate(255 12)"></path>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="brand-item">
+                <svg viewBox="0 0 103 28">
+                    <g id="vivo-LOGO" fill="currentColor">
+                        <path d="M92.1201187,22.7773568 L83.3531521,22.7773568 C78.4247857,22.7773568 77.9864276,18.7356293 77.9864276,17.5007165 C77.9864276,16.2658037 78.4247857,12.2240763 83.3531521,12.2240763 L92.1201187,12.2240763 C97.0484851,12.2240763 97.4868432,16.2658037 97.4868432,17.5007165 C97.4868432,18.7356293 97.0484851,22.7773568 92.1201187,22.7773568 M92.1201187,7.77940186 L83.3531521,7.77940186 C74.2419976,7.77940186 73.4316287,15.2256518 73.4316287,17.5007165 C73.4316287,19.7759758 74.2419976,27.2222258 83.3531521,27.2222258 L92.1201187,27.2222258 C101.231468,27.2222258 102.041837,19.7759758 102.041837,17.5007165 C102.041837,15.2256518 101.231468,7.77940186 92.1201187,7.77940186"></path>
+                        <path d="M71.6722232,8.23532926 L68.8307758,8.23532926 C67.6137631,8.23532926 67.362967,8.44312615 66.8934784,9.13947923 C66.4241842,9.83602688 58.2963682,22.2443033 58.2963682,22.2443033 C58.0372058,22.6258479 57.7622835,22.7801391 57.4200413,22.7801391 C57.0779936,22.7801391 56.8028767,22.6258479 56.5437143,22.2443033 C56.5437143,22.2443033 48.4158983,9.83602688 47.9466042,9.13947923 C47.4771155,8.44312615 47.2263194,8.23532926 46.0095013,8.23532926 L43.1678593,8.23532926 C42.5139217,8.23532926 42.2146786,8.74664971 42.6257973,9.37101323 C43.0369161,9.99537674 52.3331032,24.1107786 52.3331032,24.1107786 C53.8394361,26.3265005 54.9449623,27.2222841 57.4200413,27.2222841 C59.8951202,27.2222841 61.0008409,26.3265005 62.5073684,24.1107786 C62.5073684,24.1107786 71.8031664,9.99537674 72.2142852,9.37101323 C72.6254039,8.74664971 72.3263554,8.23532926 71.6722232,8.23532926"></path>
+                        <path d="M33.9316764,9.43928657 C33.9316764,8.57716293 34.273335,8.2353098 35.1354586,8.2353098 L37.2832769,8.2353098 C38.1454005,8.2353098 38.4872537,8.57716293 38.4872537,9.43928657 L38.4872537,26.0182879 C38.4872537,26.8804115 38.1454005,27.2222647 37.2832769,27.2222647 L35.1354586,27.2222647 C34.273335,27.2222647 33.9316764,26.8804115 33.9316764,26.0182879 L33.9316764,9.43928657 Z"></path>
+                        <path d="M29.2512459,8.23532926 L26.4097985,8.23532926 C25.1925912,8.23532926 24.9417952,8.44312615 24.4723065,9.13947923 C24.0030124,9.83602688 15.8753909,22.2443033 15.8753909,22.2443033 C15.6160339,22.6256534 15.3411116,22.7801391 14.9988694,22.7801391 C14.6566271,22.7801391 14.3817048,22.6256534 14.1225424,22.2443033 C14.1225424,22.2443033 5.9947264,9.83602688 5.52543229,9.13947923 C5.05613818,8.44312615 4.80514754,8.23532926 3.5883294,8.23532926 L0.746492834,8.23532926 C0.0162852061,8.23532926 -0.206687867,8.74664971 0.204625463,9.37101323 C0.615744226,9.99537674 9.91193135,24.1107786 9.91193135,24.1107786 C11.4180697,26.3265005 12.5237904,27.2222841 14.9988694,27.2222841 C17.4741429,27.2222841 18.5796691,26.3265005 20.0861965,24.1107786 C20.0861965,24.1107786 29.3821891,9.99537674 29.7931133,9.37101323 C30.2044266,8.74664971 29.9814536,8.23532926 29.2512459,8.23532926"></path>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="brand-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="85" height="22" viewBox="0 0 85 22">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0905 13.7856H10.0898H10.0888C5.80572 13.7403 3.03806 11.7032 3.03806 8.59604C3.03806 5.48888 5.80572 3.45175 10.0888 3.40651C14.3738 3.45175 17.1411 5.48888 17.1411 8.59604C17.1411 11.7032 14.3738 13.7403 10.0905 13.7856ZM10.2155 0.898183C10.2144 0.89832 10.1292 0.896816 10.0863 0.895996C10.0424 0.896543 9.95715 0.898183 9.95715 0.898183C4.09395 0.993718 0 4.1591 0 8.5961C0 13.0331 4.09395 16.1986 9.95578 16.294C9.95578 16.294 10.0424 16.2948 10.0851 16.2946C10.1299 16.295 10.2157 16.294 10.2157 16.294C16.0774 16.1986 20.1712 13.0331 20.1712 8.5961C20.1712 4.1591 16.0774 0.993718 10.2155 0.898183Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M74.9195 13.7856H74.9188H74.9177C70.6348 13.7403 67.8671 11.7032 67.8671 8.59604C67.8671 5.48888 70.6348 3.45175 74.9177 3.40651C79.2027 3.45175 81.9701 5.48888 81.9701 8.59604C81.9701 11.7032 79.2027 13.7403 74.9195 13.7856ZM75.0445 0.898183C75.0434 0.89832 74.9584 0.896816 74.9152 0.895996C74.8715 0.896543 74.7862 0.898183 74.7862 0.898183C68.923 0.993718 64.829 4.1591 64.829 8.5961C64.829 13.0331 68.923 16.1986 74.785 16.294C74.785 16.294 74.8715 16.2948 74.9141 16.2946C74.9591 16.295 75.0448 16.294 75.0448 16.294C80.9065 16.1986 85.0003 13.0331 85.0003 8.5961C85.0003 4.1591 80.9065 0.993718 75.0445 0.898183Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M53.3494 13.7856H53.3487H53.3477C49.0648 13.7403 46.2971 11.7032 46.2971 8.59604C46.2971 5.48888 49.0648 3.45175 53.3477 3.40651C57.6326 3.45175 60.4001 5.48888 60.4001 8.59604C60.4001 11.7032 57.6326 13.7403 53.3494 13.7856ZM53.4745 0.898183C53.4734 0.89832 53.3884 0.896816 53.3452 0.895996C53.3015 0.896543 53.2162 0.898183 53.2162 0.898183C50.423 0.943695 48.032 1.68638 46.2932 2.93081V1.61846H43.2591V21.1043H46.2932V14.2617C48.0317 15.506 50.4223 16.2486 53.2149 16.294C53.2151 16.2942 53.3015 16.2948 53.344 16.2946C53.3891 16.295 53.4747 16.294 53.4747 16.294C59.3364 16.1986 63.4303 13.0331 63.4303 8.5961C63.4303 4.1591 59.3364 0.993718 53.4745 0.898183Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M31.7169 13.7856H31.7162H31.7154C27.4323 13.7403 24.6646 11.7032 24.6646 8.59604C24.6646 5.48888 27.4323 3.45175 31.7154 3.40651C36.0003 3.45175 38.7677 5.48888 38.7677 8.59604C38.7677 11.7032 36.0003 13.7403 31.7169 13.7856ZM31.8472 0.898183C31.8459 0.89832 31.7609 0.896816 31.7179 0.895996C31.674 0.896543 31.5887 0.898183 31.5887 0.898183C28.7955 0.943695 26.4045 1.68638 24.6657 2.93081V1.61846H21.6317V21.1043H24.6657V14.2617C26.4044 15.506 28.7949 16.2486 31.5873 16.294C31.5873 16.294 31.674 16.2948 31.7166 16.2946C31.7616 16.295 31.8473 16.294 31.8473 16.294C37.709 16.1986 41.8028 13.0331 41.8028 8.5961C41.8028 4.1591 37.709 0.993718 31.8472 0.898183Z" fill="currentColor"></path>
+                </svg>
+            </div>
+
+            <div class="brand-item">
+                <svg width="104" height="30" viewBox="0 0 104 30">
+                    <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M4.11158 6.0872H0V2H4.11158V6.0872ZM4.11158 26.8723H0V10.1748H4.11158V26.8723ZM16.363 14.4323C16.363 9.82339 20.1215 6.08681 24.7579 6.08681C29.3947 6.08681 33.1532 9.82339 33.1532 14.4323H37.2648C37.2648 7.56634 31.6652 2 24.7579 2C17.8506 2 12.2515 7.56634 12.2515 14.4323C12.2515 21.299 17.8506 26.8649 24.7579 26.8649H24.7587V22.7777H24.7579C20.1215 22.7777 16.363 19.0412 16.363 14.4323ZM49.5155 14.4323C49.5155 19.0411 53.2743 22.7777 57.9107 22.7777C62.5471 22.7777 66.3056 19.0411 66.3056 14.4323C66.3056 9.82338 62.5471 6.0868 57.9107 6.0868C53.2743 6.0868 49.5155 9.82338 49.5155 14.4323ZM45.4038 14.4323C45.4038 7.56634 51.003 2 57.9103 2C64.8183 2 70.4171 7.56634 70.4171 14.4323C70.4171 21.299 64.8183 26.8649 57.9103 26.8649C51.003 26.8649 45.4038 21.299 45.4038 14.4323ZM24.4878 17.0494L34.6912 27.2446L37.6059 24.3619L27.4029 14.167L24.4878 17.0494ZM82.6677 14.4323C82.6677 19.0411 86.4262 22.7777 91.0626 22.7777C95.699 22.7777 99.4575 19.0411 99.4575 14.4323C99.4575 9.82338 95.699 6.0868 91.0626 6.0868C86.4262 6.0868 82.6677 9.82338 82.6677 14.4323ZM78.5562 14.4323C78.5562 7.56634 84.1553 2 91.0622 2C97.9703 2 103.569 7.56634 103.569 14.4323C103.569 21.299 97.9703 26.8649 91.0622 26.8649C84.1553 26.8649 78.5562 21.299 78.5562 14.4323Z"></path>
+                </svg>
+            </div>
+
+            <div class="brand-item">
+                <svg viewBox="0 0 664.7 144.6" width="109px" height="23.29px">
+                    <g fill="currentColor">
+                        <path d=" M433.4,41.9h-54.6c0,0-9.9,0-13.5,7.2v-7.2h-24.4v101.6h24.4V78.1c0-8,6.5-14.5,14.5-14.5H426 c8,0,14.5,6.5,14.5,14.5v65.4h23.9V70.8C464.5,70.8,462.7,41.9,433.4,41.9"></path> 
+                        <rect x="5" y="12.6" width="24.4" height="130.9"></rect> 
+                        <rect x="291.6" y="41.8" width="24.5" height="101.8"></rect> 
+                        <rect x="489.2" y="41.9" width="24.4" height="101.6"></rect> 
+                        <path d="M146.6,41.9H92c0,0-9.9,0-13.5,7.2v-7.2H54.1v101.6h24.4V78.1c0-8,6.5-14.5,14.5-14.5h46.3 c8,0,14.5,6.5,14.5,14.5v65.4h23.9V70.8C177.8,70.8,176,41.9,146.6,41.9"></path> 
+                        <rect x="291.6" y="1.5" width="24.5" height="21.1"></rect> 
+                        <rect x="489.2" y="1.5" width="24.4" height="21.1"></rect> 
+                        <polygon points="660.5,41.9 630,41.9 594.9,77.4 559.8,41.9 529.4,41.9 579.6,92.8 529.4,143.5 560.2,143.5 594.9,108.3 629.7,143.5 660.5,143.5 610.2,92.8"></polygon> 
+                        <path d="M237.3,25.1c1.5-1.6,3.5-2.5,5.9-2.5h27.3V1.5h-21.6c-0.3,0.1-3.5-0.1-7.8,0.1c-0.2,0-0.3,0-0.4,0 c-9,0-17.5,3.3-22.9,9c-4.6,4.8-6.9,11.5-6.9,16.8c0,10.4,0,14.5,0,14.5h-31.7c0,0,8.7,3.2,14.7,21.7h17v79.9H235V63.6h35.4V41.9 h-18.1H235V33c0-0.6,0-1.2,0.1-1.8c0-0.2-0.1-0.4-0.1-0.5c0-1.7,0.6-3.3,1.5-4.6C236.8,25.7,237,25.4,237.3,25.1"></path>
+                    </g>
+                </svg>
+            </div>
+
+        </div>
     </div>
 </section>
 
-<section id="services">
-    <div class="container">
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>ผ่อนไปใช้ไป</h3>
-                <p>อนุมัติไวภายใน 30 นาที รับเครื่องไปใช้งานได้ทันที ไม่ต้องมีบัตรเครดิต</p>
-                <a href="#register" class="cta-btn">สนใจผ่อนมือถือ</a>
-            </div>
-            <div class="service-card" style="border-color: var(--primary);">
-                <h3>เช็คสิทธิ์ถึงหน้าบ้าน</h3>
-                <p>ชาวอุดรฯ ไม่ต้องเดินทางมาที่ร้าน เรามีทีมงานออกไปเช็คสิทธิ์ให้ถึงบ้านหรือที่ทำงานฟรี!</p>
-                <a href="https://line.me/ti/p/@024kwxvw" class="cta-btn">นัดคิวเช็คสิทธิ์</a>
-            </div>
-            <div class="service-card">
-                <h3>การันตีมืออาชีพ</h3>
-                <p>บริการดูแลทั้งก่อนและหลังการขาย ย้ายข้อมูลฟรี พร้อมดูแลตลอดอายุการใช้งาน</p>
-                <a href="https://www.facebook.com/bigbear.mobile" class="cta-btn">ดูรีวิวลูกค้า</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="register">
-    <div class="container">
-        <h2 style="font-size: 32px; margin-bottom: 20px;">จองคิวเช็คสิทธิ์ออนไลน์</h2>
-        <p style="color: #a1a1a6; margin-bottom: 40px;">กรอกข้อมูลเบื้องต้นเพื่อให้เจ้าหน้าที่ติดต่อกลับและประเมินวงเงิน</p>
-        <a href="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" target="_blank" class="cta-btn" style="font-size: 20px; padding: 20px 50px;">📝 คลิกเพื่อกรอกข้อมูล</a>
-        <p style="margin-top: 25px; font-size: 14px; color: #6e6e73;">*บริการนี้สำหรับผู้ที่พักอาศัยในจังหวัดอุดรธานีและพื้นที่ใกล้เคียง</p>
-    </div>
-    <div class="partners">
-            <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 15px;">พันธมิตรสินเชื่ออย่างเป็นทางการ</p>
-            <div class="partners-logos">
-                <img src="https://moneyandbanking.co.th/wp-content/uploads/2024/04/%E0%B8%94%E0%B8%B2%E0%B8%A7%E0%B8%99%E0%B9%8C%E0%B9%82%E0%B8%AB%E0%B8%A5%E0%B8%94.webp" alt="Samsung Finance+" class="partner-logo-img">
-                <img src="https://www.ais.th/content/dam/ais/consumer/content/promotion/finance/logo-sg-new-2.png" alt="SG Finance" class="partner-logo-img">
-                <img src="https://s.imgz.io/2026/04/22/Niracha1eaae67e18a8d6e5.png" alt="Niracha Finance" class="partner-logo-img">
+    <section class="service-section">
+        <div class="container">
+            <h2>บริการของเรา</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>ผ่อนง่าย ใช้บัตรประชาชน</h3>
+                    <p>อนุมัติไว ภายใน 30 นาที สำหรับชาวอุดรธานีและใกล้เคียง</p>
+                </div>
+                <div class="service-card">
+                    <h3>เครื่องแท้ 100%</h3>
+                    <p>รับประกันศูนย์ไทยทุกเครื่อง มั่นใจได้ในคุณภาพ</p>
+                </div>
+                <div class="service-card">
+                    <h3>บริการหลังการขาย</h3>
+                    <p>ย้ายข้อมูลฟรี พร้อมดูแลตลอดอายุการใช้งาน</p>
+                </div>
             </div>
         </div>
-</section>
+    </section>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2026 หมีใหญ่ โมบาย อุดรธานี | ผ่อนมือถือดาวน์ 0 บาท</p>
-    </div>
-</footer>
+    <section class="partners-section">
+        <div class="container">
+            <h2>พาร์ทเนอร์สินเชื่อ</h2>
+            <div class="partner-logos">
+                <span>Samsung Finance+</span>
+                <span>SG Finance</span>
+                <span>Niracha Finance</span>
+            </div>
+        </div>
+    </section>
 
-<div class="floating-container">
-    <a href="https://line.me/ti/p/@024kwxvw" target="_blank" class="floating-btn btn-line">
-        <svg style="width:30px;fill:white" viewBox="0 0 24 24"><path d="M19.228 10.32c.115-.028.223-.057.322-.085-.141-.035-.282-.07-.423-.105.155-.035.31-.07.465-.105-.127-.03-.254-.06-.381-.091.177-.036.353-.072.53-.108-.134-.03-.267-.061-.401-.09.183-.035.366-.07.549-.105-.148-.03-.296-.06-.444-.09.184-.035.368-.07.552-.105-.156-.03-.311-.06-.466-.09.184-.035.368-.07.552-.105-.156-.03-.311-.06-.466-.09.183-.035.366-.071.549-.106-.155-.03-.311-.061-.466-.091.176-.035.353-.07.53-.105-.141-.03-.282-.06-.423-.09.169-.035.338-.07.508-.105-.141-.03-.282-.061-.423-.09.162-.036.325-.072.487-.107-.12-.027-.24-.055-.36-.082.162-.035.325-.07.487-.105l.322-.07c-.438-.117-.875-.233-1.313-.35l-.014.004c.036-.008.071-.016.107-.024-.015-.004-.03-.007-.044-.011.05-.011.099-.022.148-.033-.035-.008-.07-.016-.105-.024.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.015.021-.005.042-.01.063-.015l-.478-.115c-.445-.119-.89-.238-1.336-.356l-.013.004c.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.014.021-.005.042-.01.063-.015l-.547-.13c-.453-.122-.906-.243-1.36-.365l-.014.004c.043-.01.085-.019.128-.029-.021-.005-.043-.01-.064-.014.021-.005.042-.01.063-.015l-.613-.146c-.461-.124-.922-.249-1.383-.374l-.013.003c.042-.009.085-.019.127-.028-.021-.005-.042-.009-.063-.014.021-.005.042-.009.063-.014l-.683-.163c-.469-.127-.937-.254-1406-.381l-.013.003c.042-.009.085-.018.127-.028-.021-.005-.042-.009-.063-.014.021-.005.042-.009.063-.014l-.75-.178c-.477-.13-.954-.26-1.431-.39l-.013.004c.042-.009.084-.018.127-.027-.022-.005-.042-.009-.064-.014l-.82-.194c-.485-.133-.969-.265-1.454-.398l-.013.004c.042-.009.085-.018.127-.027-.022-.005-.042-.009-.064-.014.022-.005.043-.009.064-.014L3.63 7.854c-2.31 1.583-3.63 3.51-3.63 5.432 0 4.197 6.131 7.6 13.693 7.6 1.201 0 2.355-.088 3.444-.251l2.564 1.53c.125.074.282.115.44.115.12 0 .239-.025.351-.074.223-.099.367-.326.367-.57v-2.09c1.983-.984 3.14-2.28 3.14-3.673 0-.173-.019-.343-.056-.508zM6.436 15.65H4.282c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v3.193h1.204c.198 0 .358.161.358.358v.592c0 .198-.16.359-.358.359zm2.41 0h-.592c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v4.144c0 .198-.16.358-.358.358zm5.282 0h-1.011l-1.637-2.345v1.987c0 .198-.16.358-.358.358h-.592c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h1.011l1.637 2.346v-1.988c0-.197.16-.358.358-.358h.592c.198 0 .358.161.358.358v4.144c0 .198-.161.358-.358.358zm3.328-2.618h-1.204v.715h1.204c.198 0 .358.161.358.358v.592c0 .198-.16.358-.358.358h-2.154c-.198 0-.358-.16-.358-.358v-4.144c0-.197.16-.358.358-.358h2.154c.198 0 .358.161.358.358v.592c0 .198-.16.358-.358.358h-1.204v.611h1.204c.198 0 .358.161.358.358v.592c0 .198-.161.359-.358.359z"/></svg>
-    </a>
-    <a href="https://www.facebook.com/bigbear.mobile" target="_blank" class="floating-btn btn-facebook">
-        <svg style="width:30px;fill:white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
-</div>
+    <section class="register-section">
+        <div class="container">
+            <h2>ลงทะเบียนรับสิทธิ์</h2>
+            <div class="reg-form">
+                <input type="text" placeholder="ชื่อ-นามสกุล">
+                <input type="tel" placeholder="เบอร์โทรศัพท์">
+                <input type="text" placeholder="รุ่นที่สนใจ (เช่น S26 Ultra)">
+                <button class="btn-submit">คลิกเพื่อลงทะเบียน</button>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
