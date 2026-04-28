@@ -72,7 +72,7 @@
         .brand-item { 
             width: 100%;
             max-width: 100px;
-            height: 50px;
+            height: auto;   /*50px;*/
             display: flex;
             align-items: center;
             justify-content: center;
@@ -82,7 +82,8 @@
         }
         .brand-item svg {
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 40px;
             fill: #334155; /* สีเริ่มต้น */
         }
         .brand-item:hover { 
@@ -214,13 +215,13 @@
 
     <div class="brand-grid">
         <div class="brand-item apple">
-            <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg">
+            <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                 <path d="m13.0729 17.6825a3.61 3.61 0 0 0 -1.7248 3.0365 3.5132 3.5132 0 0 0 2.1379 3.2223 8.394 8.394 0 0 1 -1.0948 2.2618c-.6816.9812-1.3943 1.9623-2.4787 1.9623s-1.3633-.63-2.613-.63c-1.2187 0-1.6525.6507-2.644.6507s-1.6834-.9089-2.4787-2.0243a9.7842 9.7842 0 0 1 -1.6628-5.2776c0-3.0984 2.014-4.7405 3.9969-4.7405 1.0535 0 1.9314.6919 2.5924.6919.63 0 1.6112-.7333 2.8092-.7333a3.7579 3.7579 0 0 1 3.1604 1.5802zm-3.7284-2.8918a3.5615 3.5615 0 0 0 .8469-2.22 1.5353 1.5353 0 0 0 -.031-.32 3.5686 3.5686 0 0 0 -2.3445 1.2084 3.4629 3.4629 0 0 0 -.8779 2.1585 1.419 1.419 0 0 0 .031.2892 1.19 1.19 0 0 0 .2169.0207 3.0935 3.0935 0 0 0 2.1586-1.1368z"></path>
             </svg>
         </div>
 
         <div class="brand-item samsung">
-            <svg width="130" height="29" viewBox="0 0 130 29" xmlns="http://www.w3.org/2000/svg">
+            <svg width="130" height="29" viewBox="0 0 130 29" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(-250 -7)">
                     <path d="M250,20.835V19.482H254.609V21.2a1.558,1.558,0,0,0,1.724,1.6A1.509,1.509,0,0,0,258,21.6a2.237,2.237,0,0,0-.03-1.322C257.076,17.976,250.981,16.931,250.208,13.333a6.531,6.531,0,0,1-.029-2.4C250.654,8.045,253.122,7,256.184,7c2.438,0,5.8.585,5.8,4.458V12.719H257.7V11.612a1.492,1.492,0,0,0-1.605-1.6,1.452,1.452,0,0,0-1.575,1.2,2.468,2.468,0,0,0,.03.922c.5,2.059,7.017,3.167,7.73,6.887a8.481,8.481,0,0,1,.029,2.921C261.892,24.893,259.336,26,256.244,26,253,26,250,24.8,250,20.835Z" fill="#034EA2"></path>
                 </g>
@@ -228,25 +229,25 @@
         </div>
 
         <div class="brand-item vivo">
-            <svg viewBox="0 0 102 28" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 102 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                 <path d="M92.12 22.78H83.35C78.42 22.78 77.99 18.74 77.99 17.5C77.99 16.27 78.42 12.22 83.35 12.22H92.12C97.05 12.22 97.49 16.27 97.49 17.5C97.49 18.74 97.05 22.78 92.12 22.78M92.12 7.78H83.35C74.24 7.78 73.43 15.23 73.43 17.5C73.43 19.78 74.24 27.22 83.35 27.22H92.12C101.23 27.22 102.04 19.78 102.04 17.5C102.04 15.23 101.23 7.78 92.12 7.78" fill="#415fff"></path>
             </svg>
         </div>
 
         <div class="brand-item oppo">
-            <svg viewBox="0 0 85 22" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 85 22" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                 <path d="M10.09 13.78C5.8 13.74 3.04 11.7 3.04 8.6C3.04 5.49 5.8 3.45 10.09 3.41C14.37 3.45 17.14 5.49 17.14 8.6C17.14 11.7 14.37 13.74 10.09 13.78ZM10.21 0.9C4.09 1 0 4.16 0 8.6C0 13.03 4.09 16.2 9.95 16.29C16.08 16.2 20.17 13.03 20.17 8.6C20.17 4.16 16.08 0.99 10.21 0.9Z" fill="#008a00"></path>
             </svg>
         </div>
 
         <div class="brand-item iqoo">
-            <svg viewBox="0 0 104 28" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 104 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                 <path d="M4.11 6.08H0V2H4.11V6.08ZM4.11 26.87H0V10.17H4.11V26.87Z"></path>
             </svg>
         </div>
 
         <div class="brand-item infinix">
-            <svg viewBox="0 0 665 145" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 665 145" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                 <path d="M433.4 41.9h-54.6c0 0-9.9 0-13.5 7.2v-7.2h-24.4v101.6h24.4V78.1c0-8 6.5-14.5 14.5-14.5H426c8 0 14.5 6.5 14.5 14.5v65.4h23.9V70.8c0 0-1.8-28.9-31.1-28.9"></path>
             </svg>
         </div>
