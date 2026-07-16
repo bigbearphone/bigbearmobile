@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BigBear Loan Calculator MVP</title>
+<style>
+:root{--orange:#ef7d22;--dark:#242424;--bg:#f2f2f2;--line:#ddd;--green:#18794e;--red:#b42318}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:#222}
+header{background:linear-gradient(135deg,#1f1f1f,#444);color:#fff;padding:22px}
+.wrap{max-width:1100px;margin:auto;padding:0 14px}
+header h1{margin:0;font-size:28px} header p{margin:6px 0 0;color:#ddd}
+.notice{background:#fff4e8;border-left:5px solid var(--orange);padding:14px;border-radius:10px;margin:18px 0;line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+h2{margin-top:0;font-size:20px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}
+input,select{width:100%;height:42px;border:1px solid #ccc;border-radius:9px;padding:0 10px;font-size:16px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+button{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}
+.primary{background:var(--orange);color:#fff}.secondary{background:#e7e7e7}.dark{background:#222;color:#fff}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:#f7f7f7;border:1px solid #eee;border-radius:12px;padding:13px}
+.kpi span{font-size:12px;color:#666}.kpi b{display:block;font-size:22px;margin-top:4px}
+.kpi.hero{grid-column:1/-1;background:#fff0e1;border-color:#ffc88f}.kpi.hero b{font-size:31px;color:#a94b00}
+table{width:100%;border-collapse:collapse;margin-top:14px}
+td{padding:9px 4px;border-bottom:1px solid #eee}td:last-child{text-align:right;font-weight:700}
+.policy{margin-top:14px;border:1px solid #ddd;border-radius:10px;overflow:hidden}
+.policy div{display:grid;grid-template-columns:1fr 120px;padding:10px;border-bottom:1px solid #eee}.policy div:last-child{border:0}.policy strong{text-align:right}
+.small{font-size:12px;color:#666;line-height:1.5}.ok{color:var(--green)}.warn{color:var(--red)}
+footer{text-align:center;color:#777;font-size:12px;padding:24px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media print{header,.notice,.actions,footer{display:none}.grid{display:block}.card{box-shadow:none;border:1px solid #ddd;margin-bottom:12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>เครื่องคำนวณสินเชื่อและยอดปิดบัญชี</h1>
+    <p>ร้านหมีใหญ่ โมบาย — Web App MVP</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="notice">
+    <b>สำคัญ:</b> ผลคำนวณเป็นเพียงประมาณการ ยอดปิดจริงต้องยืนยันกับผู้ให้สินเชื่อ
+    และไม่ควรใช้เกณฑ์ส่วนลด 60% / 70% / 100% กับ P_PLAN โดยอัตโนมัติ
+    จนกว่าจะตรวจสอบว่าสัญญานั้นอยู่ภายใต้หลักเกณฑ์หรือเงื่อนไขดังกล่าวจริง
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>ข้อมูลสัญญา</h2>
+      <div class="row">
+        <div><label>ชื่อสินค้า</label><input id="product" value="iPhone 17 256GB"></div>
+        <div><label>วิธีหาค่างวด</label>
+          <select id="mode">
+            <option value="auto">คำนวณจากตัวคูณ P_PLAN</option>
+            <option value="manual">ใช้ค่างวดจริงจากสัญญา</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div><label>ราคาสินค้า</label><input id="price" type="number" value="30900"></div>
+        <div><label>เงินดาวน์</label><input id="down" type="number" value="3999"></div>
+      </div>
+
+      <div class="row">
+        <div><label>จำนวนงวดทั้งหมด</label>
+          <select id="term"><option>12</option><option>18</option><option selected>24</option><option>36</option></select>
+        </div>
+        <div><label>ค่างวดจริงต่อเดือน</label><input id="installment" type="number" value="2466"></div>
+      </div>
+
+      <div class="row">
+        <div><label>จำนวนงวดที่ชำระแล้ว</label><input id="paid" type="number" value="8"></div>
+        <div><label>ยอดค้าง/ค่าปรับ/ค่าใช้จ่ายอื่น</label><input id="fees" type="number" value="0"></div>
+      </div>
+
+      <h2 style="font-size:16px;margin-top:20px">ตัวคูณ P_PLAN</h2>
+      <div class="row">
+        <div><label>12 เดือน</label><input id="f12" type="number" step=".01" value="1.60"></div>
+        <div><label>18 เดือน</label><input id="f18" type="number" step=".01" value="1.90"></div>
+        <div><label>24 เดือน</label><input id="f24" type="number" step=".01" value="2.20"></div>
+        <div><label>36 เดือน</label><input id="f36" type="number" step=".01" value="2.80"></div>
+      </div>
+
+      <label style="display:flex;gap:8px;align-items:flex-start;margin-top:15px">
+        <input id="usePolicy" type="checkbox" checked style="width:20px;height:20px">
+        <span>ใช้เกณฑ์จำลองส่วนลดดอกเบี้ย 60% / 70% / 100%</span>
+      </label>
+
+      <div class="actions">
+        <button class="primary" onclick="calculate()">คำนวณ</button>
+        <button class="secondary" onclick="resetDemo()">คืนค่าเริ่มต้น</button>
+        <button class="dark" onclick="window.print()">พิมพ์ / บันทึก PDF</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>ผลการคำนวณ</h2>
+      <div class="kpis">
+        <div class="kpi hero"><span>ยอดปิดบัญชีโดยประมาณ</span><b id="settlement">฿0</b></div>
+        <div class="kpi"><span>ยอดจัดสินเชื่อ</span><b id="principal">฿0</b></div>
+        <div class="kpi"><span>ค่างวดต่อเดือน</span><b id="monthly">฿0</b></div>
+        <div class="kpi"><span>ดอกเบี้ยตามสัญญาทั้งหมด</span><b id="interestTotal">฿0</b></div>
+        <div class="kpi"><span>ส่วนลดดอกเบี้ย</span><b id="discountAmt">฿0</b></div>
+      </div>
+
+      <table>
+        <tr><td>ยอดชำระรวมตามสัญญา</td><td id="contractTotal">฿0</td></tr>
+        <tr><td>เงินต้นคงเหลือโดยประมาณ</td><td id="remainingPrincipal">฿0</td></tr>
+        <tr><td>ดอกเบี้ยอนาคตที่ยังไม่ถึงกำหนด</td><td id="unearnedInterest">฿0</td></tr>
+        <tr><td>สัดส่วนงวดที่ชำระแล้ว</td><td id="progress">0%</td></tr>
+        <tr><td>เกณฑ์ส่วนลดที่ใช้</td><td id="tier">-</td></tr>
+        <tr><td>ดอกเบี้ยหลังหักส่วนลด</td><td id="interestAfter">฿0</td></tr>
+        <tr><td>ยอดค้าง/ค่าใช้จ่ายอื่น</td><td id="feesOut">฿0</td></tr>
+      </table>
+
+      <div class="policy">
+        <div><span>ชำระไม่เกิน 1/3</span><strong>ลด 60%</strong></div>
+        <div><span>เกิน 1/3 ถึง 2/3</span><strong>ลด 70%</strong></div>
+        <div><span>เกิน 2/3</span><strong>ลด 100%</strong></div>
+      </div>
+
+      <p class="small">
+        MVP นี้เฉลี่ยเงินต้นและดอกเบี้ยตามจำนวนงวดแบบง่าย เพื่อใช้ประเมินเบื้องต้น
+        ระบบจริงอาจมีวันครบกำหนด ภาษี ค่าธรรมเนียม วิธีตัดชำระ และยอดค้างที่แตกต่างกัน
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer>BigBear Loan Calculator MVP — ใช้ภายในร้านเพื่อประเมินเบื้องต้น</footer>
+
+<script>
+const num=id=>Number(document.getElementById(id).value||0);
+const baht=v=>new Intl.NumberFormat('th-TH',{style:'currency',currency:'THB',maximumFractionDigits:0}).format(Math.max(0,v||0));
+
+function tier(paid,term){
+  const r=term?paid/term:0;
+  if(r<=1/3)return{rate:.60,text:'ไม่เกิน 1/3 — ลด 60%'};
+  if(r<=2/3)return{rate:.70,text:'เกิน 1/3 ถึง 2/3 — ลด 70%'};
+  return{rate:1,text:'เกิน 2/3 — ลด 100%'};
+}
+
+function calculate(){
+  const price=num('price'),down=num('down'),term=num('term');
+  const paid=Math.min(Math.max(0,num('paid')),term),fees=num('fees');
+  const principal=Math.max(0,price-down);
+  const factors={12:num('f12'),18:num('f18'),24:num('f24'),36:num('f36')};
+  const autoMonthly=term?Math.round(principal*(factors[term]||1)/term):0;
+  const monthly=document.getElementById('mode').value==='auto'?autoMonthly:num('installment');
+  document.getElementById('installment').value=monthly;
+
+  const contractTotal=monthly*term;
+  const interestTotal=Math.max(0,contractTotal-principal);
+  const remainRatio=term?Math.max(0,(term-paid)/term):0;
+  const remainingPrincipal=principal*remainRatio;
+  const unearnedInterest=interestTotal*remainRatio;
+  const t=tier(paid,term);
+  const use=document.getElementById('usePolicy').checked;
+  const discount=use?unearnedInterest*t.rate:0;
+  const interestAfter=Math.max(0,unearnedInterest-discount);
+  const settlement=remainingPrincipal+interestAfter+fees;
+
+  const set=(id,v)=>document.getElementById(id).textContent=v;
+  set('settlement',baht(settlement));set('principal',baht(principal));set('monthly',baht(monthly));
+  set('interestTotal',baht(interestTotal));set('discountAmt',baht(discount));set('contractTotal',baht(contractTotal));
+  set('remainingPrincipal',baht(remainingPrincipal));set('unearnedInterest',baht(unearnedInterest));
+  set('progress',term?((paid/term)*100).toFixed(1)+'%':'0%');set('tier',use?t.text:'ไม่ใช้ส่วนลดจำลอง');
+  set('interestAfter',baht(interestAfter));set('feesOut',baht(fees));
+  document.getElementById('tier').className=use?'ok':'warn';
+}
+
+function resetDemo(){
+  const d={product:'iPhone 17 256GB',mode:'auto',price:30900,down:3999,term:24,installment:2466,paid:8,fees:0,f12:1.60,f18:1.90,f24:2.20,f36:2.80};
+  Object.entries(d).forEach(([k,v])=>document.getElementById(k).value=v);
+  document.getElementById('usePolicy').checked=true;calculate();
+}
+document.querySelectorAll('input,select').forEach(x=>x.addEventListener('input',calculate));
+calculate();
+</script>
+</body>
+</html>
