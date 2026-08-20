@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>หมีใหญ่ โมบาย | คำนวณผ่อน iPhone</title>
+<style>
+:root{
+  --orange:#ff6a00;
+  --orange2:#ff8a2b;
+  --ink:#161616;
+  --muted:#737373;
+  --line:#ececec;
+  --bg:#f6f6f4;
+  --card:#fff;
+  --shadow:0 14px 38px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at top left,rgba(255,106,0,.11),transparent 28%),
+    linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+}
+.wrap{max-width:1050px;margin:auto;padding:16px}
+.hero{
+  background:linear-gradient(135deg,#fff,#fff9f4);
+  border:1px solid #f0e2d7;border-radius:26px;padding:22px;
+  box-shadow:var(--shadow);margin-bottom:16px
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:54px;height:54px;border-radius:18px;background:#fff7f0;
+  display:grid;place-items:center;font-size:30px;border:1px solid #ffd5b6
+}
+h1{font-size:clamp(28px,6vw,48px);line-height:1.06;margin:14px 0 7px}
+.orange{color:var(--orange)}
+.sub{color:var(--muted);font-size:14px;line-height:1.6}
+
+.sectionTitle{font-size:22px;font-weight:900;margin:22px 2px 12px}
+.products{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px
+}
+.productCard{
+  background:#fff;border:2px solid transparent;border-radius:20px;padding:14px 12px;
+  box-shadow:0 8px 26px rgba(0,0,0,.06);cursor:pointer;transition:.18s;
+  min-height:182px;position:relative
+}
+.productCard:hover{transform:translateY(-2px)}
+.productCard.active{border-color:var(--orange);box-shadow:0 10px 30px rgba(255,106,0,.14)}
+.productCard.otherCard{background:linear-gradient(135deg,#fff,#fff6ee)}
+.customFields{display:none;margin-top:12px;padding:14px;border:1px dashed #ffb47c;border-radius:16px;background:#fffaf6}
+.customFields.show{display:block}
+.customFields .hint{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:6px}
+.phoneIcon{
+  width:48px;height:74px;border-radius:12px;margin:2px auto 10px;
+  background:linear-gradient(145deg,#f7f7f7,#dedede);
+  border:2px solid #c9c9c9;position:relative
+}
+.phoneIcon:before{
+  content:"";position:absolute;top:7px;left:7px;width:9px;height:9px;
+  border-radius:50%;background:#222;box-shadow:13px 0 0 #555
+}
+.pname{text-align:center;font-weight:900;font-size:15px}
+.cap{text-align:center;color:var(--muted);font-size:12px;margin-top:2px}
+.price{text-align:center;color:var(--orange);font-weight:900;font-size:21px;margin-top:8px}
+.down{text-align:center;font-size:12px;color:#333;margin-top:3px}
+@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.products{grid-template-columns:1fr 1fr}.wrap{padding:10px}.hero{border-radius:20px}}
+
+.grid{display:grid;grid-template-columns:1.08fr .92fr;gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:24px;padding:18px;
+  box-shadow:var(--shadow)
+}
+.card h2{font-size:20px;margin:0 0 14px}
+label{display:block;font-size:13px;font-weight:800;margin:13px 0 7px}
+input{
+  width:100%;padding:14px;border:1px solid #dcdcdc;border-radius:14px;
+  background:#fff;font-size:16px;outline:none
+}
+input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,106,0,.1)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.termGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.termBtn{
+  border:1px solid #ddd;background:#fff;border-radius:14px;padding:12px 6px;
+  font-weight:900;cursor:pointer;font-size:14px
+}
+.termBtn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.badge{
+  display:inline-block;margin-top:8px;padding:6px 10px;border-radius:999px;
+  background:#fff0e5;color:#bf4d00;font-weight:800;font-size:12px
+}
+.resultTop{
+  border-radius:20px;padding:18px;background:linear-gradient(135deg,#161616,#343434);color:#fff
+}
+.small{font-size:12px;opacity:.75}
+.monthly{font-size:clamp(34px,7vw,56px);font-weight:950;margin:3px 0}
+.baht{font-size:15px;font-weight:800}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.stat{border:1px solid var(--line);border-radius:15px;padding:12px}
+.k{font-size:11px;color:var(--muted)}
+.v{font-size:17px;font-weight:900;margin-top:3px}
+.copybox{
+  white-space:pre-line;background:#fff9f4;border:1px dashed #ffb47c;
+  border-radius:18px;padding:14px;margin-top:13px;line-height:1.65;font-size:14px
+}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
+.btn{
+  border:none;border-radius:15px;padding:13px 12px;font-weight:900;font-size:14px;cursor:pointer
+}
+.primary{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff}
+.ghost{background:#fff;border:1px solid #ddd}
+.note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}
+.tableWrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:right;font-size:13px}
+th:first-child,td:first-child{text-align:left}
+th{background:#fff7f1;color:#c24e00}
+.footer{text-align:center;color:#888;font-size:12px;padding:20px 2px 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="brand">
+      <div class="logo">🐻</div>
+      <div>
+        <div style="font-size:20px;font-weight:950">หมีใหญ่ โมบาย</div>
+        <div class="sub">อุดรธานี | ทุกสาขา</div>
+      </div>
+    </div>
+    <h1>เลือก iPhone แล้วดูค่างวด <span class="orange">ได้ทันที</span></h1>
+    <div class="sub">เห็นราคาเครื่องและดาวน์ก่อนเลือก • เพิ่มเงินดาวน์เองได้ • คัดลอกสรุปส่งลูกค้าได้</div>
+  </section>
+
+  <div class="sectionTitle">เลือกรุ่นที่ต้องการ</div>
+  <div class="products" id="productCards"></div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>รายละเอียดเครื่อง</h2>
+
+      <div class="row2">
+        <div>
+          <label>รุ่น</label>
+          <input id="modelName" readonly>
+        </div>
+        <div>
+          <label>ความจุ</label>
+          <input id="capacity" readonly>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div>
+          <label>ราคาเครื่อง</label>
+          <input id="price" readonly>
+        </div>
+        <div>
+          <label>ดาวน์ขั้นต่ำ</label>
+          <input id="minDown" readonly>
+        </div>
+      </div>
+
+      <div class="customFields" id="customFields">
+        <div class="hint">กรอกข้อมูลรุ่นอื่นๆ เอง แล้วระบบจะคำนวณค่างวดและสร้างข้อความส่งลูกค้าให้ทันที</div>
+
+        <label>ชื่อรุ่น</label>
+        <input id="customName" type="text" placeholder="เช่น Samsung S25 Ultra">
+
+        <label>ความจุ</label>
+        <input id="customCapacity" type="text" placeholder="เช่น 256GB">
+
+        <div class="row2">
+          <div>
+            <label>ราคาเครื่อง (บาท)</label>
+            <input id="customPrice" type="number" min="0" step="100" placeholder="เช่น 46900">
+          </div>
+          <div>
+            <label>เงินดาวน์ (บาท)</label>
+            <input id="customDown" type="number" min="0" step="100" placeholder="เช่น 5000">
+          </div>
+        </div>
+      </div>
+
+      <label>ลูกค้าต้องการดาวน์เท่าไหร่</label>
+      <input id="down" type="number" min="0" step="100">
+      <div class="badge" id="extraBadge">เพิ่มจากขั้นต่ำ 0 บาท</div>
+
+      <label>เลือกระยะผ่อน</label>
+      <div class="termGrid" id="terms"></div>
+
+      <div class="actions">
+        <button class="btn ghost" id="resetBtn">ใช้ดาวน์ขั้นต่ำ</button>
+        <button class="btn primary" id="calcBtn">คำนวณค่างวด</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>สรุปให้ลูกค้า</h2>
+      <div class="resultTop">
+        <div class="small">ค่างวดโดยประมาณ</div>
+        <div class="monthly"><span id="monthly">0</span><span class="baht"> บาท/เดือน</span></div>
+        <div class="small">ระยะผ่อน <span id="termLabel">24</span> เดือน</div>
+      </div>
+
+      <div class="meta">
+        <div class="stat"><div class="k">ราคาเครื่อง</div><div class="v" id="resultPrice">0 บาท</div></div>
+        <div class="stat"><div class="k">เงินดาวน์</div><div class="v" id="resultDown">0 บาท</div></div>
+        <div class="stat"><div class="k">ยอดจัด</div><div class="v" id="financed">0 บาท</div></div>
+        <div class="stat"><div class="k">ค่าทำสัญญา</div><div class="v">390 บาท</div></div>
+      </div>
+
+      <div class="copybox" id="copyText"></div>
+
+      <div class="actions">
+        <button class="btn primary" id="copyBtn">คัดลอกข้อความ</button>
+        <button class="btn ghost" id="copyAllBtn">คัดลอกทุกงวด</button>
+      </div>
+
+      <div class="note">
+        ค่างวดเป็นการประมาณตามสูตรสินเชื่อร้าน • ค่าบริการทำสัญญา 390 บาท แยกต่างหาก
+      </div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:16px">
+    <h2>ตารางราคาทั้งหมด</h2>
+    <div class="tableWrap">
+      <table>
+        <thead>
+          <tr>
+            <th>รุ่น</th><th>ราคาเครื่อง</th><th>ดาวน์ขั้นต่ำ</th>
+            <th>6 เดือน</th><th>12 เดือน</th><th>18 เดือน</th>
+            <th>24 เดือน</th><th>36 เดือน</th><th>60 เดือน</th>
+          </tr>
+        </thead>
+        <tbody id="priceTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="footer">หมีใหญ่ โมบาย | อุดรธานี ทุกสาขา</div>
+</div>
+
+<script>
+const PRODUCTS=[
+ {name:"iPhone 15",cap:"128GB",price:24900,minDown:1999},
+ {name:"iPhone 16",cap:"128GB",price:27900,minDown:2999},
+ {name:"iPhone 17",cap:"256GB",price:30900,minDown:3999},
+ {name:"iPhone 17 Pro",cap:"256GB",price:44900,minDown:4999},
+ {name:"iPhone 17 Pro Max",cap:"256GB",price:49900,minDown:5999},
+ {name:"อื่นๆ",cap:"กรอกเอง",price:0,minDown:0,isCustom:true}
+];
+
+const MULT={6:1.30,12:1.60,18:1.90,24:2.20,36:2.80,60:4.00};
+let selectedProduct=0, selectedTerm=24;
+const $=id=>document.getElementById(id);
+const fmt=n=>Math.round(Number(n)||0).toLocaleString("th-TH");
+
+function monthly(price,down,term){
+  return Math.round(Math.max(0,price-down)*MULT[term]/term);
+}
+function activeProduct(){
+  const p=PRODUCTS[selectedProduct];
+  if(!p.isCustom) return {...p};
+  return {
+    name:$("customName").value.trim()||"สินค้าอื่นๆ",
+    cap:$("customCapacity").value.trim()||"-",
+    price:Math.max(0,Number($("customPrice").value)||0),
+    minDown:Math.max(0,Number($("customDown").value)||0),
+    isCustom:true
+  };
+}
+function buildCards(){
+  $("productCards").innerHTML="";
+  PRODUCTS.forEach((p,i)=>{
+    const c=document.createElement("div");
+    c.className="productCard"+(i===selectedProduct?" active":"")+(p.isCustom?" otherCard":"");
+    c.innerHTML=p.isCustom
+      ? `<div class="phoneIcon" style="display:grid;place-items:center;font-size:28px;background:#fff7f0;border-color:#ffb47c">＋</div>
+         <div class="pname">อื่นๆ</div><div class="cap">กรอกข้อมูลเอง</div>
+         <div class="price" style="font-size:17px">กำหนดราคาเอง</div>
+         <div class="down">กำหนดเงินดาวน์เอง</div>`
+      : `<div class="phoneIcon"></div><div class="pname">${p.name}</div><div class="cap">${p.cap}</div>
+         <div class="price">${fmt(p.price)}.-</div><div class="down">ดาวน์เริ่ม ${fmt(p.minDown)}.-</div>`;
+    c.onclick=()=>{selectedProduct=i;buildCards();loadProduct(true)};
+    $("productCards").appendChild(c);
+  });
+}
+function buildTerms(){
+  $("terms").innerHTML="";
+  Object.keys(MULT).map(Number).forEach(t=>{
+    const b=document.createElement("button");
+    b.className="termBtn"+(t===selectedTerm?" active":"");
+    b.textContent=t+" เดือน";
+    b.onclick=()=>{selectedTerm=t;buildTerms();calc()};
+    $("terms").appendChild(b);
+  });
+}
+function loadProduct(resetDown){
+  const base=PRODUCTS[selectedProduct];
+  $("customFields").classList.toggle("show",!!base.isCustom);
+  const p=activeProduct();
+  $("modelName").value=p.name;
+  $("capacity").value=p.cap;
+  $("price").value=p.price?fmt(p.price)+" บาท":"";
+  $("minDown").value=fmt(p.minDown)+" บาท";
+  if(resetDown) $("down").value=p.minDown;
+  calc();
+}
+function calc(){
+  const p=activeProduct();
+  let down=Math.max(0,Number($("down").value)||0);
+  if(p.price>0 && down>p.price) down=p.price;
+  $("down").value=down;
+
+  $("modelName").value=p.name;
+  $("capacity").value=p.cap;
+  $("price").value=p.price?fmt(p.price)+" บาท":"";
+  $("minDown").value=fmt(p.minDown)+" บาท";
+
+  const financed=Math.max(0,p.price-down);
+  const m=monthly(p.price,down,selectedTerm);
+  $("extraBadge").textContent=p.isCustom
+    ? `เงินดาวน์ที่กำหนด ${fmt(down)} บาท`
+    : `เพิ่มจากขั้นต่ำ ${fmt(Math.max(0,down-p.minDown))} บาท`;
+
+  $("monthly").textContent=fmt(m);
+  $("termLabel").textContent=selectedTerm;
+  $("resultPrice").textContent=fmt(p.price)+" บาท";
+  $("resultDown").textContent=fmt(down)+" บาท";
+  $("financed").textContent=fmt(financed)+" บาท";
+
+  if(p.price<=0){
+    $("copyText").textContent='กรุณากรอกราคาเครื่องสำหรับตัวเลือก "อื่นๆ"';
+    return;
+  }
+
+  $("copyText").textContent=
+`📱 ${p.name} ${p.cap}
+💰 ราคาเครื่อง ${fmt(p.price)} บาท
+💳 ดาวน์ ${fmt(down)} บาท
+📆 ผ่อน ${selectedTerm} เดือน
+✅ ค่างวดประมาณ ${fmt(m)} บาท/เดือน
+🧾 ค่าบริการทำสัญญา 390 บาท แยกต่างหาก
+
+หากเพิ่มเงินดาวน์ ค่างวดต่อเดือนจะลดลง
+หมีใหญ่ โมบาย | อุดรธานี ทุกสาขา`;
+}
+function buildTable(){
+  $("priceTable").innerHTML="";
+  PRODUCTS.filter(p=>!p.isCustom).forEach(p=>{
+    const tr=document.createElement("tr");
+    let cells=`<td><b>${p.name}</b><br><span style="color:#777">${p.cap}</span></td>
+      <td>${fmt(p.price)}.-</td><td>${fmt(p.minDown)}.-</td>`;
+    [6,12,18,24,36,60].forEach(t=>cells+=`<td>${fmt(monthly(p.price,p.minDown,t))}.-</td>`);
+    tr.innerHTML=cells;
+    $("priceTable").appendChild(tr);
+  });
+  const tr=document.createElement("tr");
+  tr.innerHTML=`<td><b>อื่นๆ</b><br><span style="color:#777">กรอกข้อมูลเอง</span></td>
+    <td colspan="8" style="text-align:center;color:#777">เลือก “อื่นๆ” ด้านบน เพื่อกำหนดชื่อรุ่น ความจุ ราคาเครื่อง และเงินดาวน์เอง</td>`;
+  $("priceTable").appendChild(tr);
+}
+async function copyText(text,btn){
+  try{
+    await navigator.clipboard.writeText(text);
+    const old=btn.textContent;btn.textContent="คัดลอกแล้ว ✓";
+    setTimeout(()=>btn.textContent=old,1200);
+  }catch(e){
+    const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);
+    ta.select();document.execCommand("copy");ta.remove();
+  }
+}
+$("down").addEventListener("input",calc);
+$("calcBtn").onclick=calc;
+$("resetBtn").onclick=()=>{$("down").value=activeProduct().minDown;calc()};
+
+["customName","customCapacity","customPrice","customDown"].forEach(id=>{
+  $(id).addEventListener("input",()=>{
+    if(PRODUCTS[selectedProduct].isCustom){
+      const p=activeProduct();
+      if(id==="customDown") $("down").value=p.minDown;
+      calc();
+    }
+  });
+});
+
+$("copyBtn").onclick=()=>{
+  const p=activeProduct();
+  if(p.price<=0){alert("กรุณากรอกราคาเครื่องก่อน");return}
+  copyText($("copyText").textContent,$("copyBtn"));
+};
+
+$("copyAllBtn").onclick=()=>{
+  const p=activeProduct();
+  if(p.price<=0){alert("กรุณากรอกราคาเครื่องก่อน");return}
+  const down=Math.max(0,Math.min(Number($("down").value)||0,p.price));
+  let text=`📱 ${p.name} ${p.cap}
+💰 ราคาเครื่อง ${fmt(p.price)} บาท
+💳 ดาวน์ ${fmt(down)} บาท
+
+`;
+  [6,12,18,24,36,60].forEach(t=>text+=`• ${t} เดือน ≈ ${fmt(monthly(p.price,down,t))} บาท/เดือน
+`);
+  text+=`
+🧾 ค่าบริการทำสัญญา 390 บาท แยกต่างหาก
+หมีใหญ่ โมบาย | อุดรธานี ทุกสาขา";
+  copyText(text,$("copyAllBtn"));
+};
+
+buildCards();
+buildTerms();
+buildTable();
+loadProduct(true);
+</script>
+</body>
+</html>
